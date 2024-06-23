@@ -89,9 +89,9 @@ Note that
 	& = & \frac{K_2(\bar{y}, p, \mu) - K_1(\bar{y}, p, \mu)}{v^2 K_0(\bar{y}, p, \mu)}
 \end{eqnarray*}
 and for $g^{(2)}$ one obtains
-\begin{eqnarray*}
+\begin{eqnarray}
 	g^{(2)} & = & \frac{\left[K_2(\bar{y}, p, \mu) - K_1(\bar{y}, p, \mu)\right] K_0(\bar{y}, p, \mu)}{K_1(\bar{y}, p, \mu)^2}
-\end{eqnarray*}
+\end{eqnarray}
 
 {\it II}\\
 In~\cite{MpkDob2022} the following change of variables was performed
@@ -106,5 +106,53 @@ Now, the pair distribution function takes on the form
 \begin{equation}
 	g^{(2)} = \frac{\left[K_2(\bar{z}, p) - K_1(\bar{z}, p)\right] K_0(\bar{z}, p)}{K_1(\bar{z}, p)^2}.
 \end{equation}
+
+{\it III} \\
+For the average value of $n$ note the following:
+\begin{eqnarray*}
+	K_0(\bar{z}, p) \langle n \rangle_Q & = & 
+	v^{-1} \sum_{n=1}^{\infty} n \frac{v^n}{n!} \exp(\bar{z}n - \frac{ap}{2}n^2)
+	\\
+	& = & \sum_{n=1}^{\infty} \frac{v^{n-1}}{(n-1)!} \exp(\bar{z}n - \frac{ap}{2}n^2)
+	\\
+	& = & \left| n=m+1; \quad \sum_{n=1}^{\infty} \rightarrow \sum_{m=0}^{\infty}; \quad n^2 = m^2 + 2m + 1 \right|
+	\\
+	& = & \exp(\bar{z} - \frac{ap}{2}) \sum_{n=0}^{\infty} \frac{v^n}{n!} \exp\left[(\bar{z} - ap)n - \frac{ap}{2}n^2 \right]
+	\\
+	& = & \exp(\bar{z} - \frac{ap}{2}) \langle \exp(-apn) \rangle_Q
+	\\
+	& = & \exp(\bar{z} - \frac{ap}{2}) K_0 (\bar{z} - ap, p),
+\end{eqnarray*}
+and thus
+\begin{equation*}
+	\langle n \rangle_Q = \frac{K_0(\bar{z} - ap, p)}{K_0(\bar{z}, p)} \exp(\bar{z} - \frac{ap}{2})
+\end{equation*}
+
+For the average value of $n(n-1)$ note the following
+\begin{eqnarray*}
+	K_0(\bar{z}, p) \langle n(n-1) \rangle_Q & = & 
+	v^{-2} \sum_{n=2}^{\infty} n(n-1) \frac{v^n}{n!} \exp(\bar{z}n - \frac{ap}{2}n^2)
+	\\
+	& = & \sum_{n=2}^{\infty} \frac{v^{n-2}}{(n-2)!} \exp(\bar{z}n - \frac{ap}{2}n^2)
+	\\
+	& = & \left| n=m+2; \quad \sum_{n=2}^{\infty} \rightarrow \sum_{m=0}^{\infty}; \quad n^2 = m^2 + 4m +4 \right|
+	\\
+	& = & \exp(2\bar{z} - 2ap) \sum_{n=0}^{\infty} \frac{v^n}{n!} \exp\left[(\bar{z} - 2ap)n - \frac{ap}{2}n^2 \right]
+	\\
+	& = & \exp(2\bar{z} - 2ap) \langle \exp(-2apn) \rangle_Q
+	\\
+	& = & \exp(2\bar{z} - 2ap) K_0(\bar{z} - 2ap, p),
+\end{eqnarray*}
+and thus
+\begin{equation*}
+	\langle n(n-1) \rangle_Q = \frac{K_0(\bar{z} - 2ap, p)}{K_0(\bar{z}, p)} \exp(2\bar{z} - 2ap).
+\end{equation*}
+
+The pair distribution function takes on the form
+\begin{equation}
+	g^{(2)} = \exp(-ap) \frac{K_0(\bar{z} - 2ap, p) K_0(\bar{z}, p)}{K_0(\bar{z}-ap, p)^2}
+\end{equation}
+Note that the factor $\exp(-ap)$ is the low-density limit of the pair distribution function that can be obtained from the Boltzman factor of the interaction potential, see Appendix~\ref{sec:low-dens}.
+
 
 

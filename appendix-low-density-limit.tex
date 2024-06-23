@@ -1,0 +1,50 @@
+\section{\label{sec:low-dens}Low-density limit of the pair distribution function}
+For an isotropic system the pair distribution function $g^{(2)}(\vb{r}_1, \vb{r}_2)$ is a function only of a separation $r = \abs{\vb{r}_1 - \vb{r}_2}$, and the low-density limit is equal to the Boltzman factor $e(r)$ of a pair interaction potential $v(r)$, see e.g. Section~2.6 in~\cite{hansen2013theory}:
+\begin{equation*}
+	\lim_{\rho \to 0} g^{(2)}(r) = e(r) \equiv \exp(-\beta v(r)).
+\end{equation*}
+Let us assume that in the case of the cell model studied in this paper, the following comes true as well
+\begin{equation}
+	\lim_{\rho \to 0} g^{(2)}(x_1, x_2) = e(x_1, x_2)
+\end{equation}
+where the Boltzman factor for the Curie-Weiss interaction defined in~\eqref{def:curie-weiss-pot} is
+\begin{equation*}
+	e(x_1, x_2) = \exp\left[-\beta \Phi_{N_v}(x_1, x_2)\right].
+\end{equation*}
+If $x_1$ and $x_2$ are in different cells, then
+\begin{equation*}
+	e(x_1, x_2) = \exp(\frac{\beta J_1}{N_v}) = \exp(\frac{p}{N_v}).
+\end{equation*}
+In the limit of $N_v \to \infty$
+\begin{equation*}
+	e(x_1, x_2) \approx 1 + \frac{p}{N_v} \approx 1.
+\end{equation*}
+If $x_1$ and $x_2$ are in the same cell, then
+\begin{equation*}
+	e(x_1, x_2) = \exp(\frac{\beta J_1}{N_v} - \beta J_2) = \exp(\frac{p}{N_v} - pa). 
+\end{equation*}
+In the limit of $N_v \to \infty$
+\begin{equation*}
+	e(x_1, x_2) \approx \exp(-pa).
+\end{equation*}
+Thus 
+\begin{equation*}
+	\lim_{\rho \to \infty} g^{(2)}(x_1, x_2) = \left\{
+		\begin{array}{ll}
+			\exp[\frac{p}{N} - pa], \quad & \text{if } \exists \Delta_l (x_1, x_2 \in \Delta_l),
+			\\
+			\exp[\frac{p}{N_v}], \quad & \text{if } \forall \Delta_l (x_1 \notin \Delta_l \lor x_2 \notin \Delta_l.
+		\end{array}
+	\right.
+\end{equation*}
+or in the limit of $N_v \to \infty$
+\begin{equation}
+	\label{eq:g2_low_limit}
+	\lim_{\substack{\rho \to \infty \\ N_v \to \infty}} g^{(2)}(x_1, x_2) = \left\{
+	\begin{array}{ll}
+		\exp[- pa], \quad & \text{if } \exists \Delta_l (x_1, x_2 \in \Delta_l),
+		\\
+		1, \quad & \text{if } \forall \Delta_l (x_1 \notin \Delta_l \lor x_2 \notin \Delta_l.
+	\end{array}
+	\right.
+\end{equation}
