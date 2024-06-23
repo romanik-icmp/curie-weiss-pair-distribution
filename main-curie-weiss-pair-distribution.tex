@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+
+\usepackage{orcidlink}
+\usepackage{amssymb}
+\usepackage{physics}
+%\usepackage{cite}
+\usepackage{hyperref} % for hyperlinks in references
+\usepackage[nameinlink]{cleveref}
+
+\textwidth 150mm
+\textheight 240mm
+\voffset = -20mm
+
+%Title of paper
+\title{Pair distribution function for a cell model with Curie-Weiss interaction}
+
+\author{R.V.~Romanik, M.P.~Kozlovskii, O.A.~Dobush
+	\\ \small Institute for Condensed Matter Physics, NAS of Ukraine 
+	\\ \small 1~Svientsitskii Street, 79011, Lviv, Ukraine 
+	\\ \small romanik@icmp.lviv.ua}
+%\author{R.V.~Romanik \\ Institute for Condensed Matter Physics, NAS of Ukraine}
+
+\begin{document}
+	
+	\maketitle
+	
+	%\begin{multicols}{2}
+	
+	\abstract{In this paper we present results for the pair distribution function for a cell model with Curie-Weiss interaction
+		\\
+		
+		\textbf{Keywords: } Pair distribution function, $n-$particle density, Curie-Weiss interaction, cell model.
+	}
+	
+	\section{Introduction}
+	
+	\input{./model}
+	
+	\input{./pair_distribution}
+	
+	%\input{./problem_statement}
+	
+	\section{Conclusion}
+	
+	\appendix
+	
+	\renewcommand{\theequation}{A.\arabic{equation}}
+	\setcounter{equation}{0}
+	
+	%\bibliographystyle{plain}
+	%\bibliographystyle{longbibliography}
+	% \bibliographystyle{nature}
+	\bibliographystyle{cmpj}
+	\bibliography{fluids_cv,books_romanik_bibliography}
+	
+\end{document}

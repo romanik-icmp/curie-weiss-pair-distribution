@@ -1,0 +1,47 @@
+\section{\label{sec:model} Model}
+The cell model introduced and described in~\cite{KKD2018book,KKD2020} is considered. This model possesses an exact solution in the case of Curie-Weiss interaction. The exact asymptotic expressions for the grand partition function were obtained in~\cite{KKD2020}. In this paper we will study structure properties of the model, in particular $1$-body and $2$-body densities, and the pair distribution function.
+
+Let us briefly introduce notation to be used in this paper, and then summarize the known results for the model.
+
+We work within the formalism of the grand canonical ensemble. We consider a system of point particles contained in volume $V$. The volume $V$ is divided into a number of $N_v$ congruent cubic cells $\Delta_l$ of volume $v=c^3$, such that the volume $V$ is the union of all $\Delta_l$
+\begin{equation*}
+	V = \bigcup_{l=1}^{N_v}\Delta_l,
+\end{equation*}
+and for each pair of $\Delta_l$ and $\Delta_m$
+\begin{equation*}
+	\Delta_l \cap \Delta_m = \emptyset, \text{ if } l \neq m.
+\end{equation*}
+
+The interaction energy between particles in configuration $\gamma = \{x_1, ..., x_N\}$, where $x_i$ is the space coordinate of the $i$-th particle and $N$ is the number of particles in the configuration $\gamma$, is defined as follows
+\begin{equation*}
+	W_{N_v}(\gamma) = \frac{1}{2} \sum_{x,y \in \gamma} \Phi_{N_v} (x,y)
+\end{equation*}
+where $\Phi_{N_v}$ is given by the Curie-Weiss interaction
+\begin{equation*}
+	\Phi_{N_v} = -\frac{J_1}{N_v} + J_2\sum_{l=1}^{N_v} I_{\Delta_l}(x) I_{\Delta_l}(y),
+\end{equation*}
+and $I_{\Delta_l}(x)$ is the indicator of $\Delta_l$
+\begin{equation*}
+	I_{\Delta_l} (x) = \left\{
+	\begin{array}{ll}
+		1, \quad x \in \Delta_l,
+		\\
+		0, \quad x \notin \Delta_l.
+	\end{array}
+	\right.
+\end{equation*}
+The first term in $\Phi_{N_v}$ describes the pairwise attraction between all particles and is characterized by $J_1 > 0$. The second term in $\Phi_{N_v}$ describes the repulsion between two particles contained within the same cell $\Delta_l$ and is characterized by $J_2 > 0.$ For stability of interaction the following condition must hold
+\begin{equation*}
+	J_2 > J_1
+\end{equation*}
+and in this work we fix $a = J_2/J_1 = 1.2$.
+
+The grand partition function is defined as follows
+\begin{equation}
+	\Xi = \sum_{N=0}^{\infty}\frac{z^N}{N!} \int_{V} \dotsc \int_{V} \exp(-\beta W_{N_v}(\gamma)) {\rm d} x_1 \dotsc {\rm d} x_N
+\end{equation}
+where $z$ is the activity
+\begin{equation*}
+	z = \frac{\exp(\beta \mu)}{\Lambda^3},
+\end{equation*}
+$\beta = k_{\rm B} T$ the inverse temperature, $k_{\rm B}$ Boltzmann constant, $T$ the temperature, $\mu$ the chemical potential, $\Lambda = (2\pi\beta\hbar^2/m)^{1/2}$ the de Broglie thermal wavelength, $\hbar$ the Planck constant, $m$ the mass of a particle. In the grand partition function the integration goes over all configurations with $N$ particles and then the summation goes over all positive integer values of $N$.

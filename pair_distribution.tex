@@ -1,0 +1,110 @@
+\section{\label{sec:init-pair-distribution} Pair distribution function}
+The $n$-particle distribution function is defined via $n$-particle densities as follows (for reference, see Section~2.6 in~\cite{hansen2013theory})
+\begin{equation*}
+	\label{def:g_n}
+	g^{(n)}(x_1,\dotsc,x_n)=\frac{\rho^{(n)}(x_1,\dotsc,x_n)}{\prod_{i=1}^{n}\rho^{(1)}(x_i)}
+\end{equation*}
+where $n$-particle density defined in the grand canonical ensemble is
+\begin{eqnarray*}
+	\label{def:rho_n}
+	\rho^{(n)}(x_1,\dotsc,x_n) = \frac{1}{\Xi}\sum_{N=n}^{\infty} \frac{z^N}{(N-n)!} \int\exp(-\beta W_{N_v}(\gamma)) {\rm d} x_{n+1} \dotsc {\rm d} x_N.
+\end{eqnarray*}
+In this work, our goal is to calculate the pair distribution function $g^{(2)}(x_1, x_2)$
+\begin{equation*}
+	g^{(2)}(x_1, x_2) = \frac{\rho^{(2)}(x_1, x_2)}{\rho^{(1)}(x_1) \rho^{(2)}(x_2)}.
+\end{equation*}
+Thus we first need to calculate the one- and two-particle densities.
+
+Let us first calculate $\rho^{(1)}$. By definition
+\begin{equation*}
+	\rho^{(1)} (x_1) = \Xi^{-1} \sum_{N=1}^{\infty} \frac{z^N}{(N-n)!} \int \exp(-\beta W_{N_v}(x_1, \dotsc, x_N)) {\rm d} x_2 \dotsc {\rm d} x_N.
+\end{equation*}
+Applying the method described in~\cite{KKD2020}, we obtain the following result
+\begin{equation*}
+	\rho^{(1)} (x_1) = \frac{K_1(\bar{y}, p, \mu)}{v K_0(\bar{y},p,\mu)} = \frac{\bar{n}(p,\mu)}{v}
+\end{equation*}
+where $\bar{n}$ is the average value of the occupation number of a cell. Thus, for the considered cell model with Curie-Weiss interaction we obtained the result known for homogeneous systems: the single-particle density is equal to the average particle density. In the presented theory, the average values are calculated using the probability measure $Q_{p,\mu}(n)$
+\begin{equation*}
+	Q_{p,\mu}(n) = \frac{1}{K_0(\bar{y}, p, \mu) n!} v^n \exp\left[(\bar{y} + \mu)n - \frac{a p}{2}n^2 \right],
+	\quad n \in \mathbb{N}_0.
+\end{equation*}
+Thus
+\begin{equation*}
+	\bar{n}(p, \mu) \equiv \langle n \rangle_{Q} = \sum_{n=0}^{\infty} n Q_{p, \mu}(n),
+\end{equation*}
+and 
+\begin{equation}
+	\rho^{(1)}(x_1) = \frac{\langle n \rangle_{Q}}{v}.
+\end{equation}
+
+Let us now calculate the two-particle density, defined as
+\begin{equation*}
+	\rho^{(2)} (x_1, x_2) = \Xi^{-1} \sum_{N=2}^{\infty} \frac{z^N}{(N-n)!} \int \exp(-\beta W_{N_v}(x_1, \dotsc, x_N)) {\rm d} x_3 \dotsc {\rm d} x_N.
+\end{equation*}
+To deal with this expression, we again will follow the methodology developed in~\cite{KKD2020}. However, it is important to note that the result for $\rho^{(2)}(x_1, x_2)$ will vary depending on whether $x_1$ and $x_2$ belong to the same cell or to different cells.
+
+When $x_1$ and $x_2$ belong to different cells, the result for $\rho^{(2)}(x_1, x_2)$ is as follows
+\begin{eqnarray}
+	\rho^{(2)} (x_1, x_2) & = & \left[\frac{K_1(\bar{y}, p, \mu)}{v K_0(\bar{y}, p, \mu)}\right]^2 
+	= \frac{\bar{n}(p, \mu)^2}{v^2}
+	\nonumber \\
+	& = & \frac{\langle n \rangle_{Q}^2}{v^2}.
+\end{eqnarray}
+From this expression the result for $g^{(2)}(x_1, x_2)$ follows immediately
+\begin{equation}
+	g^{(2)}(x_1, x_2) = 1, \quad \text{ if } x_1, x_2 \text{ belong to different cells}.
+\end{equation}
+\begin{equation*}
+	g^{(2)}(x_1, x_2) = 1, \qquad \text{ if } \nexists \Delta_l (x_1, x_2 \in \Delta_l).
+\end{equation*}
+\begin{equation*}
+	g^{(2)}(x_1, x_2) = 1, \quad \text{ if } \forall \Delta_l (x_1 \notin \Delta_l \lor x_2 \notin \Delta_l).
+\end{equation*}
+
+When $x_1$ and $x_2$ belong to the same cell, the result for $\rho^{(2)}(x_1, x_2)$ is as follows
+\footnote{compare with Eq.~(2.6.4) from~\cite{hansen2013theory}}
+\begin{equation}
+	\rho^{(2)}(x_1, x_2) = \frac{1}{v^2} \sum_{n=0}^{\infty} n(n-1) Q_{p, \mu}(n) 
+	= \frac{\langle n(n-1) \rangle_{Q}}{v^2}.
+\end{equation}
+and for $g^{(2)}(x_1, x_2)$ one gets
+\begin{equation}
+	g^{(2)}(x_1, x_2) = \frac{\langle n(n-1) \rangle_{Q}}{\langle n \rangle_{Q}^2}, \quad \text{if } x_1, x_2 \text{ belong to the same cell}.
+\end{equation}
+\begin{equation*}
+	g^{(2)}(x_1, x_2) = \frac{\langle n(n-1) \rangle_{Q}}{\langle n \rangle_{Q}^2}, \quad \text{if } \exists \Delta_l (x_1, x_2 \in \Delta_l).
+\end{equation*}
+In what follows, we will mostly focus on $g^{(2)}(x_1, x_2)$ with $x_1$ and $x_2$ in the same cell.
+First thing to note is that given $x_1$ and $x_2$ belong to the same cell, the $2$-particle density does not otherwise depend on the position of the particles, thus we can just write $\rho^{(2)}$ for simplicity. The same consequently applies to $g^{(2)}$.
+
+Before proceeding with numerical and graphical results for the pair distribution function $g^{(2)}$ let us first rewrite it in a few alternative representations.
+
+{\it I}\\
+Note that
+\begin{eqnarray*}
+	\rho^{(2)} & = & \frac{1}{v^2 K_0(\bar{y}, p, \mu)} \sum_{n=2}^{\infty} n(n-1) \frac{v^n}{n!} \exp\left[(\bar{y} + \mu)n - \frac{a p}{2} n^2\right]
+	\\
+	& = & \frac{1}{v^2 K_0(\bar{y}, p, \mu)} \sum_{n=0}^{\infty} (n^2 - n) \frac{v^n}{n!} \exp\left[(\bar{y} + \mu)n - \frac{a p}{2} n^2\right]
+	\\
+	& = & \frac{K_2(\bar{y}, p, \mu) - K_1(\bar{y}, p, \mu)}{v^2 K_0(\bar{y}, p, \mu)}
+\end{eqnarray*}
+and for $g^{(2)}$ one obtains
+\begin{eqnarray*}
+	g^{(2)} & = & \frac{\left[K_2(\bar{y}, p, \mu) - K_1(\bar{y}, p, \mu)\right] K_0(\bar{y}, p, \mu)}{K_1(\bar{y}, p, \mu)^2}
+\end{eqnarray*}
+
+{\it II}\\
+In~\cite{MpkDob2022} the following change of variables was performed
+\begin{equation*}
+	\bar{y} + \beta\mu = \bar{z}.
+\end{equation*}
+The convenience of such change of variables consists in possibility to present some equations in parametric form, with $z$ being the parameter. In particular, the chemical potential can be written as a function of two variables $(\bar{z}, p)$
+\begin{equation*}
+	\beta\mu = \bar{z} - p K_1(\bar{z},p)/K_0(\bar{z},p).
+\end{equation*}
+Now, the pair distribution function takes on the form
+\begin{equation}
+	g^{(2)} = \frac{\left[K_2(\bar{z}, p) - K_1(\bar{z}, p)\right] K_0(\bar{z}, p)}{K_1(\bar{z}, p)^2}.
+\end{equation}
+
+
