@@ -95,9 +95,10 @@ and for $g^{(2)}$ one obtains
 
 {\it II}\\
 In~\cite{MpkDob2022} the following change of variables was performed
-\begin{equation*}
+\begin{equation}
+	\label{eq:change_y_to_z}
 	\bar{y} + \beta\mu = \bar{z}.
-\end{equation*}
+\end{equation}
 The convenience of such change of variables consists in possibility to present some equations in parametric form, with $z$ being the parameter. In particular, the chemical potential can be written as a function of two variables $(\bar{z}, p)$
 \begin{equation*}
 	\beta\mu = \bar{z} - p K_1(\bar{z},p)/K_0(\bar{z},p).
@@ -106,6 +107,10 @@ Now, the pair distribution function takes on the form
 \begin{equation}
 	g^{(2)} = \frac{\left[K_2(\bar{z}, p) - K_1(\bar{z}, p)\right] K_0(\bar{z}, p)}{K_1(\bar{z}, p)^2}.
 \end{equation}
+Here the special function $K_m(\bar{z}, p)$ are simply obtained from $K_m(\bar{y}, p, mu)$ by direct change of variables~\eqref{eq:change_y_to_z}:
+\begin{equation*}
+	K_m(\bar{z},p) = \sum_{n=0}^{\infty} \frac{n^m v^n}{n!} \exp[\bar{z}n - \frac{a p}{2}n^2].
+\end{equation*}
 
 {\it III} \\
 For the average value of $n$ note the following:

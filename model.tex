@@ -33,16 +33,45 @@ and $I_{\Delta_l}(x)$ is the indicator of $\Delta_l$
 \end{equation*}
 The first term in $\Phi_{N_v}$ describes the pairwise attraction between all particles and is characterized by $J_1 > 0$. The second term in $\Phi_{N_v}$ describes the repulsion between two particles contained within the same cell $\Delta_l$ and is characterized by $J_2 > 0.$ For stability of interaction the following condition must hold
 \begin{equation*}
-	J_2 > J_1
+	J_2 > J_1.
 \end{equation*}
-and in this work we fix $a = J_2/J_1 = 1.2$.
+Let us introduce notation
+$$a = J_2/J_1.$$
+In this work we fix $a=1.2$.
 
 The grand partition function is defined as follows
-\begin{equation}
+\begin{equation*}
 	\Xi = \sum_{N=0}^{\infty}\frac{z^N}{N!} \int_{V} \dotsc \int_{V} \exp(-\beta W_{N_v}(\gamma)) {\rm d} x_1 \dotsc {\rm d} x_N
-\end{equation}
+\end{equation*}
 where $z$ is the activity
 \begin{equation*}
 	z = \frac{\exp(\beta \mu)}{\Lambda^3},
 \end{equation*}
 $\beta = k_{\rm B} T$ the inverse temperature, $k_{\rm B}$ Boltzmann constant, $T$ the temperature, $\mu$ the chemical potential, $\Lambda = (2\pi\beta\hbar^2/m)^{1/2}$ the de Broglie thermal wavelength, $\hbar$ the Planck constant, $m$ the mass of a particle. In the grand partition function the integration goes over all configurations with $N$ particles and then the summation goes over all positive integer values of $N$.
+
+Natural units for energy and length in our model are $J_1$ and $c$, respectively. It is standard practice to present thermodynamic results in terms of dimensionless quantities, normalized by the natural units. The usefulness of such quantities is that their numerical values are usually of the order of unity. Thus we introduce the following reduced quantities: 
+
+%the reduced temperature $T^* = k_{\rm B} T / J_1$, the reduced inverse temperature $p = \beta J_1$, reduced chemical potential $\mu^* = \mu / J_1$, and the reduced pressure $P^* = Pv/J_1$.
+\begin{eqnarray*}
+	T^* = \frac{k_{\rm B} T}{J_1} & \quad & \text{ -- the reduced temperature;} 
+	\\
+	p = \beta J_1 = \frac{1}{T^*} & \quad & \text{ -- the reduced inverse temperature;}
+	\\
+	\mu^* = \frac{\mu}{J_1} & \quad & \text{ -- the reduced chemical potential;}
+	\\ 
+	P^* = \frac{Pv}{J_1} & & \text{ -- the reduced pressure;}
+\end{eqnarray*}
+
+In works~\cite{KKD2018book,KKD2020} the following expression was obtained for the grand partition function
+\begin{equation}
+	\Xi \simeq c_{N_v} \exp[N_v E(\bar{y}, p, \mu)]
+\end{equation}
+which is asymptotically exact for the limit of $N_v \to \infty$. Here $\bar{y}$ is a function of both $p$ and $\mu$ and is found from the condition of maximum for quantity $E$, which is defined as follows
+\begin{equation*}
+	E(y, p, \mu) = -\frac{y^2}{2p} + \ln K_0(y,p,\mu),
+\end{equation*}
+where $K_0(y,p,\mu)$ is the $0$-th member of the following family of special functions
+\begin{equation*}
+	K_m(y,p,\mu) = \sum_{n=0}^{\infty} \frac{n^m v^n}{n!} \exp[(y+\mu)n - \frac{a p}{2}n^2].
+\end{equation*}
+For detailed investigation of the conditions necessary for the global maximum of $E$ and the derivation of relations for $\bar{y}$, we direct the interested readers to works~\cite{KKD2018book,KKD2020,MpkDob2022}. In this study we employ the methodology developed and the results derived in those works to investigate the pair distribution function. 
