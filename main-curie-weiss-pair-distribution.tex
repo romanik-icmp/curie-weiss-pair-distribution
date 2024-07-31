@@ -52,7 +52,52 @@
 	%\bibliographystyle{plain}
 	%\bibliographystyle{longbibliography}
 	% \bibliographystyle{nature}
-	\bibliographystyle{cmpj}
-	\bibliography{fluids_cv,books_romanik_bibliography}
+	%\bibliographystyle{cmpj}
+	%\bibliographystyle{elsarticle-num}
+	%\bibliography{fluids_cv,books_romanik_bibliography}
+	
+	\begin{thebibliography}{1}
+		\expandafter\ifx\csname url\endcsname\relax
+		\def\url#1{\texttt{#1}}\fi
+		\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+		\expandafter\ifx\csname href\endcsname\relax
+		\def\href#1#2{#2} \def\path#1{#1}\fi
+		
+		\bibitem{KozitskyKozlovskiiDobush2018book}
+		Y.~Kozitsky, M.~Kozlovskii, O.~Dobush,
+		\href{https://link.springer.com/chapter/10.1007/978-3-319-61109-9_11}{Phase
+			transitions in a continuum curie-weiss system: A quantitative analysis}, in:
+		L.~A. Bulavin, A.~V. Chalyi (Eds.), Modern Problems of Molecular Physics,
+		Springer International Publishing, Cham, 2018, pp. 229--251.
+		\newblock \href {https://doi.org/10.1007/978-3-319-61109-9_11}
+		{\path{doi:10.1007/978-3-319-61109-9_11}}.
+		\newline\urlprefix\url{https://link.springer.com/chapter/10.1007/978-3-319-61109-9_11}
+		
+		\bibitem{KozitskyKozlovskiiDobush2020}
+		Y.~Kozitsky, M.~Kozlovskii, O.~Dobush,
+		\href{https://icmp.lviv.ua/journal/zbirnyk.102/23502/abstract.html}{A phase
+			transition in a curie-weiss system with binary interactions}, Condensed
+		Matter Physics 23~(2) (2020) 23502.
+		\newblock \href {https://doi.org/10.5488/CMP.23.23502}
+		{\path{doi:10.5488/CMP.23.23502}}.
+		\newline\urlprefix\url{https://icmp.lviv.ua/journal/zbirnyk.102/23502/abstract.html}
+		
+		\bibitem{KozlovskiiDobush2022}
+		M.~Kozlovskii, O.~Dobush,
+		\href{https://www.sciencedirect.com/science/article/pii/S0167732222003804}{Phase
+			behavior of a cell model with curie-weiss interaction}, Journal of Molecular
+		Liquids 353 (2022) 118843.
+		\newblock \href {https://doi.org/10.1016/j.molliq.2022.118843}
+		{\path{doi:10.1016/j.molliq.2022.118843}}.
+		\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0167732222003804}
+		
+		\bibitem{hansen2013theory}
+		J.~Hansen, I.~McDonald,
+		\href{https://books.google.com.ua/books?id=BEuYUhaDvIgC}{Theory of Simple
+			Liquids: with Applications to Soft Matter}, 4th Edition, Academic Press,
+		2013.
+		\newline\urlprefix\url{https://books.google.com.ua/books?id=BEuYUhaDvIgC}
+		
+	\end{thebibliography}
 	
 \end{document}
