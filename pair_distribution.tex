@@ -1,27 +1,27 @@
 \section{\label{sec:init-pair-distribution} Pair distribution function}
-The $n$-particle distribution function is defined via $n$-particle densities as follows (for reference, see Section~2.6 in~\cite{HansenMcDonald13})
+The $n$-particle distribution function is defined via the $n$-particle density as follows (for reference, see Section~2.6 in~\cite{HansenMcDonald13})
 \begin{equation*}
 	\label{def:g_n}
-	g^{(n)}(x_1,\dotsc,x_n)=\frac{\rho^{(n)}(x_1,\dotsc,x_n)}{\prod_{i=1}^{n}\rho^{(1)}(x_i)}
+	g^{(n)}({\vb r}_1, \dotsc, {\vb r}_n)=\frac{\rho^{(n)}({\vb r}_1, \dotsc, {\vb r}_n)}{\prod_{i=1}^{n}\rho^{(1)}({\vb r}_i)}
 \end{equation*}
-where $n$-particle density defined in the grand canonical ensemble is
+where the $n$-particle density defined in the grand canonical ensemble is
 \begin{eqnarray*}
 	\label{def:rho_n}
-	\rho^{(n)}(x_1,\dotsc,x_n) = \frac{1}{\Xi}\sum_{N=n}^{\infty} \frac{z^N}{(N-n)!} \int\exp(-\beta W_{N_v}(\gamma)) {\rm d} x_{n+1} \dotsc {\rm d} x_N.
+	\rho^{(n)}({\vb r}_1, \dotsc ,{\vb r}_n) = \frac{1}{\Xi}\sum_{N=n}^{\infty} \frac{z^N}{(N-n)!} \int\exp(-\beta W_{N_v}(\gamma_N)) {\rm d} {\vb r}_{n+1} \dotsc {\rm d} {\vb r}_N.
 \end{eqnarray*}
-In this work, our goal is to calculate the pair distribution function $g^{(2)}(x_1, x_2)$
+In this work, our goal is to calculate the pair distribution function $g^{(2)}({\vb r}_1, {\vb r}_2)$
 \begin{equation*}
-	g^{(2)}(x_1, x_2) = \frac{\rho^{(2)}(x_1, x_2)}{\rho^{(1)}(x_1) \rho^{(2)}(x_2)}.
+	g^{(2)}({\vb r}_1, {\vb r}_2) = \frac{\rho^{(2)}({\vb r}_1, {\vb r}_2)}{\rho^{(1)}({\vb r}_1) \rho^{(1)}({\vb r}_2)}.
 \end{equation*}
-Thus we first need to calculate the one- and two-particle densities.
+Therefore, we first need to calculate the one- and two-particle densities.
 
 Let us first calculate $\rho^{(1)}$. By definition
 \begin{equation*}
-	\rho^{(1)} (x_1) = \Xi^{-1} \sum_{N=1}^{\infty} \frac{z^N}{(N-n)!} \int \exp(-\beta W_{N_v}(x_1, \dotsc, x_N)) {\rm d} x_2 \dotsc {\rm d} x_N.
+	\rho^{(1)} ({\vb r}_1) = \Xi^{-1} \sum_{N=1}^{\infty} \frac{z^N}{(N-n)!} \int \exp(-\beta W_{N_v}({\vb r}_1, \dotsc, {\vb r}_N)) {\rm d} {\vb r}_2 \dotsc {\rm d} {\vb r}_N.
 \end{equation*}
 Applying the method described in~\cite{KKD20}, we obtain the following result
 \begin{equation*}
-	\rho^{(1)} (x_1) = \frac{K_1(\bar{y}, p, \mu)}{v K_0(\bar{y},p,\mu)} = \frac{\bar{n}(p,\mu)}{v}
+	\rho^{(1)} ({\vb r}_1) = \frac{K_1(\bar{y}, p, \mu)}{v K_0(\bar{y},p,\mu)} = \frac{\bar{n}(p,\mu)}{v}
 \end{equation*}
 where $\bar{n}$ is the average value of the occupation number of a cell. Thus, for the considered cell model with Curie-Weiss interaction we obtained the result known for homogeneous systems: the single-particle density is equal to the average particle density. In the presented theory, the average values are calculated using the probability measure $Q_{p,\mu}(n)$
 \begin{equation*}

@@ -12,22 +12,22 @@ and for each pair of $\Delta_l$ and $\Delta_m$
 	\Delta_l \cap \Delta_m = \emptyset, \text{ if } l \neq m.
 \end{equation*}
 
-The interaction energy between particles in configuration $\gamma = \{x_1, ..., x_N\}$, where $x_i$ is the space coordinate of the $i$-th particle and $N$ is the number of particles in the configuration $\gamma$, is defined as follows
+The interaction energy between particles in configuration $\gamma_N = \{{\vb r}_1, ..., {\vb r}_N\}$, where ${\vb r}_i$ is the space coordinate of the $i$-th particle and $N$ is the number of particles in the configuration $\gamma_N$, is defined as follows
 \begin{equation*}
-	W_{N_v}(\gamma) = \frac{1}{2} \sum_{x,y \in \gamma} \Phi_{N_v} (x,y)
+	W_{N_v}(\gamma_N) = \frac{1}{2} \sum_{{\vb r}_i,{\vb r}_j \in \gamma} \Phi_{N_v} ({\vb r}_i, {\vb r}_j)
 \end{equation*}
 where $\Phi_{N_v}$ is given by the Curie-Weiss interaction
 \begin{equation}
 	\label{def:curie-weiss-pot}
-	\Phi_{N_v}(x, y) = -\frac{J_1}{N_v} + J_2\sum_{l=1}^{N_v} I_{\Delta_l}(x) I_{\Delta_l}(y),
+	\Phi_{N_v}({\vb r}_i, {\vb r}_j) = -\frac{J_1}{N_v} + J_2\sum_{l=1}^{N_v} I_{\Delta_l}({\vb r}_i) I_{\Delta_l}({\vb r}_j),
 \end{equation}
-and $I_{\Delta_l}(x)$ is the indicator of $\Delta_l$
+and $I_{\Delta_l}({\vb r})$ is the indicator function of $\Delta_l$
 \begin{equation*}
-	I_{\Delta_l} (x) = \left\{
+	I_{\Delta_l} ({\vb r}) = \left\{
 	\begin{array}{ll}
-		1, \quad x \in \Delta_l,
+		1, \quad {\vb r} \in \Delta_l,
 		\\
-		0, \quad x \notin \Delta_l.
+		0, \quad {\vb r} \notin \Delta_l.
 	\end{array}
 	\right.
 \end{equation*}
@@ -41,11 +41,11 @@ In this work we fix $a=1.2$.
 
 The grand partition function is expressed as follows
 \begin{equation*}
-	\Xi = \sum_{N=0}^{\infty}\frac{z^N}{N!} \int_{V} \dotsc \int_{V} \exp(-\beta W_{N_v}(\gamma)) {\rm d} x_1 \dotsc {\rm d} x_N
+	\Xi = \sum_{N=0}^{\infty}\frac{\zeta^N}{N!} \int_{V} \dotsc \int_{V} \exp(-\beta W_{N_v}(\gamma_N)) {\rm d} {\vb r}_1 \dotsc {\rm d} {\vb r}_N
 \end{equation*}
-where $z$ is the activity
+where $\zeta$ is the activity
 \begin{equation*}
-	z = \frac{\exp(\beta \mu)}{\Lambda^3},
+	\zeta = \frac{\exp(\beta \mu)}{\Lambda^3},
 \end{equation*}
 $\beta = k_{\rm B} T$ the inverse temperature, $k_{\rm B}$ the Boltzmann constant, $T$ the temperature, $\mu$ the chemical potential, $\Lambda = (2\pi\beta\hbar^2/m)^{1/2}$ the de Broglie thermal wavelength, $\hbar$ the Planck constant, $m$ the mass of a particle. In the grand partition function the integration goes over all configurations with $N$ particles and then the summation goes over all positive integer values of $N$.
 
@@ -55,7 +55,7 @@ Natural units for energy and length in our model are $J_1$ and $c$, respectively
 \begin{eqnarray*}
 	T^* = \frac{k_{\rm B} T}{J_1} & \quad & \text{ -- the reduced temperature;} 
 	\\
-	p = \beta J_1 = \frac{1}{T^*} & \quad & \text{ -- the reduced inverse temperature;}
+	\beta^* = \beta J_1 = \frac{1}{T^*} & \quad & \text{ -- the reduced inverse temperature;}
 	\\
 	\mu^* = \frac{\mu}{J_1} & \quad & \text{ -- the reduced chemical potential;}
 	\\ 
@@ -64,14 +64,16 @@ Natural units for energy and length in our model are $J_1$ and $c$, respectively
 
 In works~\cite{KKD18,KKD20} the following expression was obtained for the grand partition function
 \begin{equation}
-	\Xi \simeq c_{N_v} \exp[N_v E(\bar{y}, p, \mu)]
+	\Xi \simeq c_{N_v} \exp[N_v E(T^*, \mu^*; \bar{y}_{\rm max})]
 \end{equation}
-which is asymptotically exact for the limit of $N_v \to \infty$. Here $\bar{y}$ is a function of both $p$ and $\mu$ and is found from the condition of maximum for quantity $E$, which is defined as follows
+which is asymptotically exact for the limit of $N_v \to \infty$. Here $\bar{y}_{\rm max}$ is a function of both $T^*$ and $\mu^*$ and is found from the condition of maximum for quantity $E$, which is defined as follows
 \begin{equation*}
-	E(y, p, \mu) = -\frac{y^2}{2p} + \ln K_0(y,p,\mu),
+	E(T^*, \mu^*; y) = -\frac{y^2}{2}T^* + \ln K_0(T^*,\mu^*; y),
 \end{equation*}
-where $K_0(y,p,\mu)$ is the $0$-th member of the following family of special functions
-\begin{equation*}
-	K_m(y,p,\mu) = \sum_{n=0}^{\infty} \frac{n^m v^n}{n!} \exp[(y+\mu)n - \frac{a p}{2}n^2].
-\end{equation*}
-For detailed investigation of the conditions necessary for the global maximum of $E$ and the derivation of relations for $\bar{y}$, we direct the interested readers to works~\cite{KKD18,KKD20,KD22}. In this study we employ the methodology developed and the results derived in those works to investigate the pair distribution function. 
+where $K_0(T^*,\mu^*; y)$ is the $0$-th member of the following family of special functions
+\begin{eqnarray}\label{Kjd}
+	K_j(T^*,\mu^*;y) = \sum_{n=0}^{\infty} \frac{n^j (v^* T^{*3/2})^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2]
+\end{eqnarray}
+for $j=0,1,2,\ldots$ . Quantity $c_{N_v}$ does not play any role in the thermodynamic limit, therefore we do not provide its explicit expression here.
+
+For detailed investigation of the conditions necessary for the global maximum of $E$ and the derivation of relations for $\bar{y}$, we direct the interested readers to works~\cite{KKD18,KKD20,KD22,RDKPS25arxiv}. In this study we employ the methodology developed and the results derived in those works to investigate the pair distribution function. 
