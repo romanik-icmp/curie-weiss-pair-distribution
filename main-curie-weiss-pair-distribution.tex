@@ -1,103 +1,199 @@
-\documentclass[12pt]{article}
+%Version 3.1 December 2024
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{orcidlink}
-\usepackage{amssymb}
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove “Numbered” in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-chicago.bst%  
+ 
+%%\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+
 \usepackage{physics}
-%\usepackage{cite}
-\usepackage{hyperref} % for hyperlinks in references
-\usepackage[nameinlink]{cleveref}
+%%%%
 
-\textwidth 150mm
-\textheight 240mm
-\voffset = -20mm
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
 
-%Title of paper
-\title{Pair distribution function for a cell model with Curie-Weiss interaction}
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
 
-\author{R.V.~Romanik, M.P.~Kozlovskii, O.A.~Dobush
-	\\ \small Institute for Condensed Matter Physics, NAS of Ukraine 
-	\\ \small 1~Svientsitskii Street, 79011, Lviv, Ukraine 
-	\\ \small romanik@icmp.lviv.ua}
-%\author{R.V.~Romanik \\ Institute for Condensed Matter Physics, NAS of Ukraine}
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
 
 \begin{document}
+
+\title{Pair distribution function for the cell fluid model with Curie-Weiss interaction}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author*{\fnm{R.~V.} \sur{Romanik}}\email{romanik@icmp.lviv.ua}
+
+\author{\fnm{O.~A.} \sur{Dobush}}\email{dobush@icmp.lviv.ua}
+%\equalcont{These authors contributed equally to this work.}
+
+\author{\fnm{M.~P.} \sur{Kozlovskii}}\email{mpk@icmp.lviv.ua}
+%\equalcont{These authors contributed equally to this work.}
+
+\author{\fnm{I.~V.} \sur{Pylyuk}}\email{piv@icmp.lviv.ua}
+%\equalcont{These authors contributed equally to this work.}
+
+\author{\fnm{M.~A.} \sur{Shpot}}\email{shpot.mykola@gmail.com}
+%\equalcont{These authors contributed equally to this work.}
+%\orgdiv{Department for Statistical Theory of Condensed Systems},
+\affil{\orgname{Yukhnovskii Institute for Condensed Matter Physics of the National Academy of Sciences of Ukraine}, \orgaddress{%\street{1 Svientsitskii Street},
+		\city{Lviv}, \postcode{79011}, \country{Ukraine}}}
 	
-	\maketitle
-	
-	%\begin{multicols}{2}
-	
-	\abstract{In this paper we present results for the pair distribution function for a cell model with Curie-Weiss interaction
-		\\
-		
-		\textbf{Keywords: } Pair distribution function, $n-$particle density, Curie-Weiss interaction, cell model.
-	}
-	
+%%==================================%%
+%% Sample for unstructured abstract %%
+%%==================================%%
+
+\abstract{In this paper we present results for the pair distribution function for the cell fluid model with Curie-Weiss interaction}
+
+%%================================%%
+%% Sample for structured abstract %%
+%%================================%%
+
+% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
+
+\keywords{Pair distribution function, $n-$particle density, Curie-Weiss interaction, cell fluid model}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
 	\section{Introduction}
-	
-	\input{./model}
-	
-	\input{./pair_distribution}
-	
-	%\input{./problem_statement}
-	
-	\section{Conclusion}
-	
-	\appendix
-	
-	\renewcommand{\theequation}{A.\arabic{equation}}
-	\setcounter{equation}{0}
-	
-	\input{./appendix-low-density-limit}
-	
-	%\bibliographystyle{plain}
-	%\bibliographystyle{longbibliography}
-	% \bibliographystyle{nature}
-	%\bibliographystyle{cmpj}
-	%\bibliographystyle{elsarticle-num}
-	%\bibliography{fluids_cv,books_romanik_bibliography}
-	
-	\begin{thebibliography}{1}
-		\expandafter\ifx\csname url\endcsname\relax
-		\def\url#1{\texttt{#1}}\fi
-		\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
-		\expandafter\ifx\csname href\endcsname\relax
-		\def\href#1#2{#2} \def\path#1{#1}\fi
-		
-		\bibitem{KozitskyKozlovskiiDobush2018book}
-		Y.~Kozitsky, M.~Kozlovskii, O.~Dobush,
-		\href{https://link.springer.com/chapter/10.1007/978-3-319-61109-9_11}{Phase
-			transitions in a continuum curie-weiss system: A quantitative analysis}, in:
-		L.~A. Bulavin, A.~V. Chalyi (Eds.), Modern Problems of Molecular Physics,
-		Springer International Publishing, Cham, 2018, pp. 229--251.
-		\newblock \href {https://doi.org/10.1007/978-3-319-61109-9_11}
-		{\path{doi:10.1007/978-3-319-61109-9_11}}.
-		\newline\urlprefix\url{https://link.springer.com/chapter/10.1007/978-3-319-61109-9_11}
-		
-		\bibitem{KozitskyKozlovskiiDobush2020}
-		Y.~Kozitsky, M.~Kozlovskii, O.~Dobush,
-		\href{https://icmp.lviv.ua/journal/zbirnyk.102/23502/abstract.html}{A phase
-			transition in a curie-weiss system with binary interactions}, Condensed
-		Matter Physics 23~(2) (2020) 23502.
-		\newblock \href {https://doi.org/10.5488/CMP.23.23502}
-		{\path{doi:10.5488/CMP.23.23502}}.
-		\newline\urlprefix\url{https://icmp.lviv.ua/journal/zbirnyk.102/23502/abstract.html}
-		
-		\bibitem{KozlovskiiDobush2022}
-		M.~Kozlovskii, O.~Dobush,
-		\href{https://www.sciencedirect.com/science/article/pii/S0167732222003804}{Phase
-			behavior of a cell model with curie-weiss interaction}, Journal of Molecular
-		Liquids 353 (2022) 118843.
-		\newblock \href {https://doi.org/10.1016/j.molliq.2022.118843}
-		{\path{doi:10.1016/j.molliq.2022.118843}}.
-		\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0167732222003804}
-		
-		\bibitem{hansen2013theory}
-		J.~Hansen, I.~McDonald,
-		\href{https://books.google.com.ua/books?id=BEuYUhaDvIgC}{Theory of Simple
-			Liquids: with Applications to Soft Matter}, 4th Edition, Academic Press,
-		2013.
-		\newline\urlprefix\url{https://books.google.com.ua/books?id=BEuYUhaDvIgC}
-		
-	\end{thebibliography}
-	
+
+\input{./model}
+
+\input{./pair_distribution}
+
+%\input{./problem_statement}
+
+\section{Conclusion}
+
+% \appendix
+
+\begin{appendices}
+
+\renewcommand{\theequation}{A.\arabic{equation}}
+\setcounter{equation}{0}
+
+\input{./appendix-low-density-limit}
+
+%%=============================================%%
+%% For submissions to Nature Portfolio Journals %%
+%% please use the heading ``Extended Data''.   %%
+%%=============================================%%
+
+%%=============================================================%%
+%% Sample for another appendix section			       %%
+%%=============================================================%%
+
+%% \section{Example of another appendix section}\label{secA2}%
+%% Appendices may be used for helpful, supporting or essential material that would otherwise 
+%% clutter, break up or be distracting to the text. Appendices can consist of sections, figures, 
+%% tables and equations etc.
+
+\end{appendices}
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+
+
+%\bibliographystyle{gost2008}
+\bibliography{articles,books}
+
+%\bibliography{sn-bibliography}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
 \end{document}

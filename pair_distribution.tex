@@ -1,5 +1,5 @@
 \section{\label{sec:init-pair-distribution} Pair distribution function}
-The $n$-particle distribution function is defined via $n$-particle densities as follows (for reference, see Section~2.6 in~\cite{hansen2013theory})
+The $n$-particle distribution function is defined via $n$-particle densities as follows (for reference, see Section~2.6 in~\cite{HansenMcDonald13})
 \begin{equation*}
 	\label{def:g_n}
 	g^{(n)}(x_1,\dotsc,x_n)=\frac{\rho^{(n)}(x_1,\dotsc,x_n)}{\prod_{i=1}^{n}\rho^{(1)}(x_i)}
@@ -19,7 +19,7 @@ Let us first calculate $\rho^{(1)}$. By definition
 \begin{equation*}
 	\rho^{(1)} (x_1) = \Xi^{-1} \sum_{N=1}^{\infty} \frac{z^N}{(N-n)!} \int \exp(-\beta W_{N_v}(x_1, \dotsc, x_N)) {\rm d} x_2 \dotsc {\rm d} x_N.
 \end{equation*}
-Applying the method described in~\cite{KozitskyKozlovskiiDobush2020}, we obtain the following result
+Applying the method described in~\cite{KKD20}, we obtain the following result
 \begin{equation*}
 	\rho^{(1)} (x_1) = \frac{K_1(\bar{y}, p, \mu)}{v K_0(\bar{y},p,\mu)} = \frac{\bar{n}(p,\mu)}{v}
 \end{equation*}
@@ -41,7 +41,7 @@ Let us now calculate the two-particle density, defined as
 \begin{equation*}
 	\rho^{(2)} (x_1, x_2) = \Xi^{-1} \sum_{N=2}^{\infty} \frac{z^N}{(N-n)!} \int \exp(-\beta W_{N_v}(x_1, \dotsc, x_N)) {\rm d} x_3 \dotsc {\rm d} x_N.
 \end{equation*}
-To deal with this expression, we again will follow the methodology developed in~\cite{KozitskyKozlovskiiDobush2020}. However, it is important to note that the result for $\rho^{(2)}(x_1, x_2)$ will vary depending on whether $x_1$ and $x_2$ belong to the same cell or to different cells.
+To deal with this expression, we again will follow the methodology developed in~\cite{KKD20}. However, it is important to note that the result for $\rho^{(2)}(x_1, x_2)$ will vary depending on whether $x_1$ and $x_2$ belong to the same cell or to different cells.
 
 When $x_1$ and $x_2$ belong to different cells, the result for $\rho^{(2)}(x_1, x_2)$ is as follows
 \begin{eqnarray}
@@ -62,7 +62,7 @@ From this expression the result for $g^{(2)}(x_1, x_2)$ follows immediately
 \end{equation*}
 
 When $x_1$ and $x_2$ belong to the same cell, the result for $\rho^{(2)}(x_1, x_2)$ is as follows
-\footnote{compare with Eq.~(2.6.4) from~\cite{hansen2013theory}}
+\footnote{compare with Eq.~(2.6.4) from~\cite{HansenMcDonald13}}
 \begin{equation}
 	\rho^{(2)}(x_1, x_2) = \frac{1}{v^2} \sum_{n=0}^{\infty} n(n-1) Q_{p, \mu}(n) 
 	= \frac{\langle n(n-1) \rangle_{Q}}{v^2}.
@@ -94,7 +94,7 @@ and for $g^{(2)}$ one obtains
 \end{eqnarray}
 
 {\it II}\\
-In~\cite{KozlovskiiDobush2022} the following change of variables was performed
+In~\cite{KD22} the following change of variables was performed
 \begin{equation}
 	\label{eq:change_y_to_z}
 	\bar{y} + \beta\mu = \bar{z}.
