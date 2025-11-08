@@ -146,10 +146,85 @@
 
 \maketitle
 
-	\section{Introduction}
+\section{Introduction}
 
-\pagebreak
-\input{./model}
+\section{\label{sec:model} Model}
+An open system of point particles is considered in volume $V\subset\mathbb R^3$ in three space dimensions. The total volume $V$ is partitioned into $N_v$ non-overlapping congruent cubic cells $\Delta_l$, $l\in\{1,...,N_v\}$, each of volume $v$, such that $V$ is the union of all $\Delta_l$'s:
+\begin{eqnarray}\label{volume}
+	V = \bigcup_{l=1}^{N_v}\Delta_l,\qquad
+	\Delta_l \cap \Delta_{l'} = \emptyset, \text{ if } l \neq l',
+	\\ \qquad\mbox{and}\quad
+	V = v N_v.
+\end{eqnarray}
+The interaction energy between particles in configuration $\gamma_N = \{{\vb r}_1, ..., {\vb r}_N\}$, where ${\vb r}_i$ is the space coordinate of the $i$-th particle and $N$ is the number of particles in the configuration $\gamma_N$, is defined as follows
+\begin{equation*}
+	W_{N_v}(\gamma_N) = \frac{1}{2} \sum_{{\vb r}_i,{\vb r}_j \in \gamma} \Phi_{N_v} ({\vb r}_i, {\vb r}_j)
+\end{equation*}
+where $\Phi_{N_v}$ is given by the Curie-Weiss interaction
+% The two-particle interaction energy is defined as
+\begin{equation}
+	\label{def:curie-weiss-pot}
+	\Phi_{N_v}(\vb{r}_i, \vb{r}_j) = -\frac{J_1}{N_v} + J_2\sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(\vb{r}_i) \mathbb{I}_{\Delta_l}(\vb{r}_j).
+\end{equation}
+The first term in $\Phi_{N_v}$ describes a global Curie-Weiss (mean-field-like) attraction for any pair of particles in the system.
+The strength of this attraction is controlled by an energy parameter $J_1 > 0$. The second term in $\Phi_{N_v}$ describes a local repulsion between two particles contained within the same cell $\Delta_l$ and is characterized by the parameter $J_2 > 0.$
+Here, $\mathbb{I}_{\Delta_l}(\vb{r})$ is the indicator function of a cell $\Delta_l$,
+\begin{equation}
+	\label{def:I}
+	\mathbb{I}_{\Delta_l} (\vb{r}) = \left\{
+	\begin{array}{ll}
+		1, \quad \vb{r} \in \Delta_l,
+		\\
+		0, \quad \vb{r} \notin \Delta_l.
+	\end{array}
+	\right.
+\end{equation}
+We refer the reader to Refs.~\cite{KKD18,KKD20,RDKPS25arxiv} for a more rigorous definition of the model. The main features of the model are the following:
+\begin{itemize}
+	\item the model possesses an exact solution in the thermodynamic limit;
+	
+	\item for sufficiently low temperatures, the model exhibits an infinite sequence of first-order phase transitions between fluid phases of successively increasing density;
+	
+	\item the phase transition lines between each pair of neighboring phases terminate at respective critical points, and therefore an infinite number of critical points exist in the model.
+	
+\end{itemize}
+The phase diagrams in both the temperature-density and pressure-temperature planes are presented in~\cite{KD22}.
+
+Let us briefly introduce notation to be used in this paper, and then summarize the known results for the model.
+
+The grand partition function is expressed as follows
+\begin{equation*}
+	\Xi = \sum_{N=0}^{\infty}\frac{\zeta^N}{N!} \int_{V} \dotsc \int_{V} \exp(-\beta W_{N_v}(\gamma_N)) {\rm d} {\vb r}_1 \dotsc {\rm d} {\vb r}_N
+\end{equation*}
+where $\zeta$ is the activity
+\begin{equation*}
+	\zeta = \frac{\exp(\beta \mu)}{\Lambda^3},
+\end{equation*}
+$\beta = k_{\rm B} T$ the inverse temperature, $k_{\rm B}$ the Boltzmann constant, $T$ the temperature, $\mu$ the chemical potential, $\Lambda = (2\pi\beta\hbar^2/m)^{1/2}$ the de Broglie thermal wavelength, $\hbar$ the Planck constant, $m$ the mass of a particle. In the grand partition function the integration goes over all configurations with $N$ particles and then the summation goes over all positive integer values of $N$.
+
+We use the following standard dimensionless variables: the reduced temperature $T^*=k_{\mathrm{B}}T/J_1$, the reduced pressure $P^* = P v/J_1$, the reduced chemical potential $\mu^* = \mu/J_1$, the reduced particle density $\rho^* = \frac{\langle N \rangle}{V} v = \frac{\langle N \rangle}{N_v}$, with $P$ being the pressure, and $\langle N \rangle$ the average number of particles in the system, where the brackets denote a grand-canonical ensemble average. The particle density $\rho = \frac{\langle N \rangle}{V}$ is also used throughout the paper.
+
+For stability of interaction the following condition must hold
+$J_2 > J_1.$
+For this reason we introduce notation
+$a = J_2/J_1.$ and set $a=1.2$ in the current work.
+
+The exact asymptotic expressions for the grand partition function were obtained in~\cite{KKD18,KKD20}. Here, we present the result in the form presented in~\cite{RDKPS25arxiv}:
+\begin{equation}
+	\Xi \simeq c_{N_v} \exp[N_v E(T^*, \mu^*; \bar{y}_{\rm max})]
+\end{equation}
+which is asymptotically exact for the limit of $N_v \to \infty$. Here $\bar{y}_{\rm max}$ is a function of both $T^*$ and $\mu^*$ and is found from the condition of maximum for quantity $E$, which is defined as follows
+\begin{equation*}
+	E(T^*, \mu^*; y) = -\frac{y^2}{2}T^* + \ln K_0(T^*,\mu^*; y),
+\end{equation*}
+where $K_0(T^*,\mu^*; y)$ is the $0$-th member of the following family of special functions
+\begin{eqnarray}\label{def:Kj}
+	K_j(T^*,\mu^*;y) = \sum_{n=0}^{\infty} \frac{n^j \left(v^* T^{*3/2} \right)^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2]
+\end{eqnarray}
+for $j=0,1,2,\ldots$, where $v^* = v/\lambda^3$, $\lambda = (2\pi\hbar^2/mJ_1)^{1/2}$. Quantity $c_{N_v}$ does not play any role in the thermodynamic limit, therefore we do not provide its explicit expression here.
+
+For detailed investigation of the conditions necessary for the global maximum of $E$ and the derivation of relations for $\bar{y}_{\rm max}$, we direct the interested readers to works~\cite{KKD18,KKD20,KD22,RDKPS25arxiv}. In this paper, we employ the methodology developed and the results derived in those works to study structure properties of the model, in particular one- and two-particle densities, and the pair distribution function.
+
 
 \section{\label{sec:init-pair-distribution} Pair distribution function}
 The $n$-particle distribution function is defined via the $n$-particle densities as follows (for reference, see Section~2.6 in~\cite{HansenMcDonald13})
@@ -249,9 +324,9 @@ that is, when both ${\vb r}_1$ and ${\vb r}_2$ belong to the same cell $\Delta_l
 In what follows, we will mostly focus on $g^{(2)}({\vb r}_1, {\vb r}_2)$ with ${\vb r}_1$ and ${\vb r}_2$ in the same cell.
 First thing to note is that given ${\vb r}_1$ and ${\vb r}_2$ belong to the same cell, the two-particle density does not otherwise depend on the position of the particles, thus we can just write $\rho^{(2)}$ for simplicity. The same consequently applies to $g^{(2)}$.
 
-Before proceeding with numerical and graphical results for the pair distribution function $g^{(2)}$ let us first rewrite it in a few alternative representations.
+Before proceeding with numerical and graphical results for the pair distribution function $g^{(2)}$ let us rewrite it in a few alternative representations.
 
-If expressed in terms of $K_j$, $\rho^{(2)}$ and $g^{(2)}$ take on the following forms:
+If expressed in terms of $K_j$, quantities $\rho^{(2)}$ and $g^{(2)}$ take on the following forms
 \begin{eqnarray}
 	\rho^{(2)} = \frac{K_2(T^*, \mu^*; \bar{y}_{\rm max}) - K_1(T^*, \mu^*; \bar{y}_{\rm max})}{v^2 K_0(T^*, \mu^*; \bar{y}_{\rm max})},
 \end{eqnarray}
@@ -259,9 +334,9 @@ and
 \begin{eqnarray}
 	g^{(2)} & = & \frac{\left[K_2(T^*, \mu^*; \bar{y}_{\rm max}) - K_1(T^*, \mu^*; \bar{y}_{\rm max})\right] K_0(T^*, \mu^*; \bar{y}_{\rm max})}{K_1(T^*, \mu^*; \bar{y}_{\rm max})^2},
 \end{eqnarray}
-respectively.
+respectively. See Appendix~\ref{sec:appendix_aux} for details.
 
-We can represent the results for the pair distribution function in the form of parametric equations. Applying the idea taken from~\cite{KD22}, we introduce a new function
+We can also represent the results for the pair distribution function in the form of parametric equations. Applying the idea taken from~\cite{KD22}, we introduce a new function
 \begin{equation}
 	\label{eq:change_y_to_z}
 	\bar{z}_{\rm max} = \bar{y}_{\rm max} + \frac{\mu^*}{T^*},
@@ -296,29 +371,27 @@ Similarly, if Eq.~\eqref{eq:rho_in_y} is rewritten as
 then Eqs.~\eqref{eq:g2_in_z} and~\eqref{eq:rho_in_z} constitute a parametric equation for the pair distribution function $g^{(2)}$ as a function of $\rho^*$, at any given $T^*$ and with $\bar{z}_{\mathrm{max}}$ being the parameter.
 
 \begin{figure}[htbp]
-	\includegraphics[width=0.7\textwidth,angle=0]{g2_vs_z}
-	\caption{Pair distribution function $g^{(2)}$ versus $\bar{z}$.}
-	\label{fig:g2_z}
-\end{figure}
-\begin{figure}[htbp]
-	\includegraphics[width=0.7\textwidth,angle=0]{g2_vs_y}
-	\caption{Pair distribution function $g^{(2)}$ versus $\bar{y}$.}
-	\label{fig:g2_y}
-\end{figure}
-
-\begin{figure}[htbp]
-	\includegraphics[width=0.7\textwidth,angle=0]{g2_vs_rho}
-	\caption{Pair distribution function $g^{(2)}$ versus $\rho$.}
-	\label{fig:g2_rho}
+	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_z}
+	\hfill
+	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_y}
+	\\
+	\parbox{0.45\textwidth}{\caption{\label{fig:g2_z} Pair distribution function $g^{(2)}$ versus $\bar{z}$.}}
+	\hfill
+	\parbox{0.45\textwidth}{\caption{\label{fig:g2_y} Pair distribution function $g^{(2)}$ versus $\bar{y}$.}}
+	
 \end{figure}
 
 \begin{figure}[htbp]
-	\includegraphics[width=0.7\textwidth,angle=0]{g2_vs_rho_low_temp}
-	\caption{Pair distribution function $g^{(2)}$ versus $\rho$ at low temperature $T^*=0.1$.}
-	\label{fig:g2_rho_low_temp}
+	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_rho}
+	\hfill
+	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_rho_low_temp}
+	\\
+	\parbox{0.45\textwidth}{\caption{\label{fig:g2_rho} Pair distribution function $g^{(2)}$ versus $\rho^*$.}}
+	\hfill
+	\parbox{0.45\textwidth}{\caption{\label{fig:g2_rho_low_temp} Pair distribution function $g^{(2)}$ versus $\rho^*$ at low temperature $T^*=0.1$.}}
 \end{figure}
 
-In Figure~\ref{fig:g2_z} the pair distribution function is shown as a function of $\bar{z}$ for two different values of temperature: $T^*=0.32$, which is above the range of critical temperatures, and $T^*=0.20$, which is below the range of critical temperatures. 
+At this point, we are in a position to illustrate the obtained results for the pair distribution function graphically. In Figure~\ref{fig:g2_z} the pair distribution function is shown as a function of $\bar{z}$ for two different values of temperature: $T^*=0.32$, which is above the range of critical temperatures, and $T^*=0.20$, which is below the range of critical temperatures. 
 
 In Figure~\ref{fig:g2_y} the pair distribution function is shown as a function of $\bar{y}$ for the same temperatures.
 
@@ -328,42 +401,26 @@ Very interesting behavior of $g^{(2)}$ is observed in Figure~\ref{fig:g2_rho_low
 
 The dependence of the pair distribution function on the chemical potential $\beta\mu$ is shown in Firugre~\ref{fig:g2_mu}.
 \begin{figure}[htbp]
+	\centering
 	\includegraphics[width=0.7\textwidth,angle=0]{g2_vs_mu}
-	\caption{Pair distribution function $g^{(2)}$ versus $\beta\mu$.}
+	\caption{Pair distribution function $g^{(2)}$ versus $\mu^*$.}
 	\label{fig:g2_mu}
 \end{figure}
 
 \begin{figure}[htbp]
-	\includegraphics[width=0.6\textwidth,angle=0]{g2_vs_r}
-	\caption{Pair distribution function $g^{(2)}$ as a function of separation $r$. The quantity $r^*$ denotes distance from the point with coordinate $x_1$ to the boundary of the cubic cell in the direction of $x_2$. Phase I - $T = 0.925T_c,$ $\rho^*=0.1$; Phase II - $T = 0.8T_c,$ $\rho^* = 1.0$; Phase III - $T = 0.8T_c,$ $\rho^* = 2.0$; Supercritical - $T = 1.257T_c,$ $\rho^* = 0.5$.}
-	\label{fig:g2_r}
-\end{figure}
-
-\begin{figure}[htbp]
-	\includegraphics[width=0.6\textwidth,angle=0]{g2_vs_r_low_dens}
-	\caption{Pair distribution function $g^{(2)}$ as a function of separation $r$. The quantity $r^*$ denotes distance from the point with coordinate $x_1$ to the boundary of the cubic cell in the direction of $x_2$. Phase I - $T = 0.925T_c,$ $\rho^*=0.1$; Low-density limit - $\exp(-pa)$ with $p=4.2464$ that corresponds to $T = 0.925T_c$.}
-	\label{fig:g2_r_low_dens}
+	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_r}
+	\hfill
+	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_r_low_dens}
+	\\
+	\parbox{0.45\textwidth}{\caption{\label{fig:g2_r} Pair distribution function $g^{(2)}$ as a function of separation $r$. The quantity $r^*$ denotes distance from the point with coordinate ${\vb r}_1$ to the boundary of the cubic cell in the direction of ${\vb r}_2$. Phase I - $T = 0.925T_c,$ $\rho^*=0.1$; Phase II - $T = 0.8T_c,$ $\rho^* = 1.0$; Phase III - $T = 0.8T_c,$ $\rho^* = 2.0$; Supercritical - $T = 1.257T_c,$ $\rho^* = 0.5$.}}
+	\hfill
+	\parbox{0.45\textwidth}{\caption{\label{fig:g2_r_low_dens} Pair distribution function $g^{(2)}$ as a function of separation $r$. The quantity $r^*$ denotes distance from the point with coordinate ${\vb r}_1$ to the boundary of the cubic cell in the direction of ${\vb r}_2$. Phase I - $T = 0.925T_c,$ $\rho^*=0.1$; Low-density limit - $\exp(-pa)$ with $p=4.2464$ that corresponds to $T = 0.925T_c$.}}
 \end{figure}
 
 The spatial dependency of $g^{(2)}(x_1, x_2)$ for the cell model with Curie-Weiss interaction can be presented as a step function. While $x_1$ and $x_2$ are located within one cell, $g^{(2)}$ takes on a value that is dependent of the temperature and chemical potential (or of density). However as soon as the coordinates of two particles belong to different cells, $g^{(2)}$ becomes unity.
 In Figure~\ref{fig:g2_r} such step dependency is illustrated for different values of temperature and density. The temperature and density are selected to correspond to Phase I, Phase II, Phase III, and to a supercritical region over ``Phase I - Phase II'' the critical point. Since the value for Phase I is hardly visible in the scale of the graphic, Figure~\ref{fig:g2_r_low_dens} shows $g^{(2)}$ in Phase I in a better scale, along with the low-density limit~\eqref{eq:g2_low_limit}.
 
-Finally, in Figure~\ref{fig:g2_E_mu} the dependence of $g^{(2)}$ on the chemical potential is compared with that of the quantity $E_0$ (which, in fact, is the pressure), for temperature below the critical one.
-\begin{figure}[htbp]
-	\includegraphics[width=0.6\textwidth,angle=0]{g2_vs_E_vs_mu}
-	\caption{Pair distribution function $g^{(2)}$ along with quantity $E_0$ versus chemical potential $\beta\mu$. The temperature is $T^*=0.20$ (which is below the critical value).}
-	\label{fig:g2_E_mu}
-\end{figure}
-
-
-%\pagebreak
-%\input{./pair_distribution}
-
-%\input{./problem_statement}
-
 \section{Conclusions}
-
-% \appendix
 
 \begin{appendices}
 
@@ -371,6 +428,7 @@ Finally, in Figure~\ref{fig:g2_E_mu} the dependence of $g^{(2)}$ on the chemical
 \setcounter{equation}{0}
 
 \section{Auxiliary calculations}
+\label{sec:appendix_aux}
 
 When ${\vb r}_1$ and ${\vb r}_2$ belong to the same cell, the two-particle density is expressed in terms of functions $K_j$ defined in~\eqref{def:Kj} as follows
 \begin{eqnarray*}
@@ -385,7 +443,57 @@ Therefore, for $g^{(2)}$ one obtains
 	g^{(2)} & = & \frac{\left[K_2(T^*, \mu^*; \bar{y}_{\rm max}) - K_1(T^*, \mu^*; \bar{y}_{\rm max})\right] K_0(T^*, \mu^*; \bar{y}_{\rm max})}{K_1(T^*, \mu^*; \bar{y}_{\rm max})^2}
 \end{eqnarray}
 
-\input{./appendix-low-density-limit}
+
+\section{\label{sec:low-dens}Low-density limit of the pair distribution function}
+For an isotropic system the pair distribution function $g^{(2)}(\vb{r}_1, \vb{r}_2)$ is a function only of a separation $r \equiv \abs{\vb{r}_1 - \vb{r}_2}$, and the low-density limit is equal to the Boltzmann factor $e(r)$ of a pair interaction potential $v(r)$, see e.g. Section~2.6 in~\cite{HansenMcDonald13}:
+\begin{equation*}
+	\lim_{\rho \to 0} g^{(2)}(r) = e(r) \equiv \exp(-\beta v(r)).
+\end{equation*}
+Let us assume that in the case of the cell model studied in this paper, the following comes true as well
+\begin{equation}
+	\lim_{\rho \to 0} g^{(2)}({\vb r}_1, {\vb r}_2) = e({\vb r}_1, {\vb r}_2)
+\end{equation}
+where the Boltzmann factor for the Curie-Weiss interaction defined in~\eqref{def:curie-weiss-pot} is
+\begin{equation*}
+	e({\vb r}_1, {\vb r}_2) = \exp\left[-\beta \Phi_{N_v}({\vb r}_1, {\vb r}_2)\right].
+\end{equation*}
+If ${\vb r}_1$ and ${\vb r}_2$ are in different cells, then
+\begin{equation*}
+	e({\vb r}_1, {\vb r}_2) = \exp(\frac{\beta J_1}{N_v}) = \exp(\frac{\beta^*}{N_v}).
+\end{equation*}
+In the limit of $N_v \to \infty$
+\begin{equation*}
+	e({\vb r}_1, {\vb r}_2) \approx 1 + \frac{\beta^*}{N_v} \approx 1.
+\end{equation*}
+If ${\vb r}_1$ and ${\vb r}_2$ are in the same cell, then
+\begin{equation*}
+	e({\vb r}_1, {\vb r}_2) = \exp(\frac{\beta J_1}{N_v} - \beta J_2) = \exp(\frac{\beta^*}{N_v} - \beta^* a). 
+\end{equation*}
+In the limit of $N_v \to \infty$,
+\begin{equation*}
+	e({\vb r}_1, {\vb r}_2) \approx \exp(-\beta^* a).
+\end{equation*}
+Therefore, 
+\begin{equation*}
+	\lim_{\rho \to 0} g^{(2)}({\vb r}_1, {\vb r}_2) = \left\{
+	\begin{array}{ll}
+		\exp[\frac{\beta^*}{N_v} - \beta^* a], \quad & \text{if } \exists \Delta_l ({\vb r}_1, {\vb r}_2 \in \Delta_l),
+		\\
+		\exp[\frac{\beta^*}{N_v}], \quad & \text{if } \nexists \Delta_l ({\vb r}_1, {\vb r}_2 \in \Delta_l).
+	\end{array}
+	\right.
+\end{equation*}
+which in the thermodynamic limit $N_v \to \infty$ becomes
+\begin{equation}
+	\label{eq:g2_low_limit}
+	\lim_{\substack{\rho \to 0 \\ N_v \to \infty}} g^{(2)}({\vb r}_1, {\vb r}_2) = \left\{
+	\begin{array}{ll}
+		\exp[- \beta^* a], \quad & \text{if } \exists \Delta_l ({\vb r}_1, {\vb r}_2 \in \Delta_l),
+		\\
+		1, \quad & \text{if } \nexists \Delta_l ({\vb r}_1, {\vb r}_2 \in \Delta_l).
+	\end{array}
+	\right.
+\end{equation}
 
 %%=============================================%%
 %% For submissions to Nature Portfolio Journals %%
@@ -410,7 +518,6 @@ Therefore, for $g^{(2)}$ one obtains
 %% file, and delete the associated \verb+\bibliography+ commands.                            %%
 %%===========================================================================================%%
 
-\pagebreak
 %\bibliographystyle{gost2008}
 \bibliography{articles,books}
 
