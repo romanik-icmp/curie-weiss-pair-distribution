@@ -264,15 +264,16 @@ Therefore, for the considered cell fluid model with Curie-Weiss interaction we o
 	\rho^{(1)}({\vb r}_1) = \rho.
 \end{equation}
 
-In the presented theory, the average value of the cell occupation number can also be calculated using the probability measure $Q_{T^*,\mu^*}(n)$~\cite{KKD20}:
+In the present theory, the average value of the cell-occupation number $n$ can be calculated using the probability measure $Q_{T^*,\mu^*}(n)$~\cite{KKD20}:
 \begin{equation*}
 	Q_{T^*,\mu^*}(n) = \frac{1}{K_0(T^*, \mu^*; \bar{y}_{\rm max}) n!} \left(v^* T^{*3/2}\right)^n \exp\left[\left(\bar{y}_{\rm max} + \frac{\mu^*}{T^*} \right)n - \frac{a}{2T^*}n^2 \right],
 	\quad n \in \mathbb{N}_0,
 \end{equation*}
 so that
 \begin{equation*}
-	\langle n \rangle_{Q} = \sum_{n=0}^{\infty} n Q_{T^*, \mu^*}(n).
+	\langle n \rangle_{Q} = \sum_{n=0}^{\infty} n Q_{T^*, \mu^*}(n),
 \end{equation*}
+where $\langle (\ldots) \rangle_Q$ denotes averaging with respect to the probability measure $Q_{T^*, \mu^*}(n)$.
 Hence, we can write the following equalities:
 \begin{equation}
 	v \rho^{(1)}({\vb r}_1) = \langle n \rangle_{Q} = \rho^*.
@@ -382,9 +383,9 @@ then Eqs.~\eqref{eq:g2_in_z} and~\eqref{eq:rho_in_z} constitute a parametric equ
 \end{figure}
 
 \begin{figure}[htbp]
-	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_rho}
+	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_rho_2}
 	\hfill
-	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_rho_low_temp}
+	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_rho_low_temp_3}
 	\\
 	\parbox{0.45\textwidth}{\caption{\label{fig:g2_rho} Pair distribution function $g^{(2)}$ versus $\rho^*$.}}
 	\hfill
