@@ -92,7 +92,7 @@
 
 \begin{document}
 
-\title{Pair distribution function for the cell fluid model with Curie-Weiss interaction}
+\title{Pair distribution function of the cell fluid model with Curie-Weiss interaction}
 
 %%=============================================================%%
 %% GivenName	-> \fnm{Joergen W.}
@@ -124,7 +124,7 @@
 %% Sample for unstructured abstract %%
 %%==================================%%
 
-\abstract{In this paper we present results for the pair distribution function for the cell fluid model with Curie-Weiss interaction}
+\abstract{In this paper we present results for the pair distribution function for the cell fluid model with Curie-Weiss interaction. As a supplementary result, one- and two-particle densities are calculated.}
 
 %%================================%%
 %% Sample for structured abstract %%
@@ -138,7 +138,7 @@
 % 
 % \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
 
-\keywords{Pair distribution function, $n-$particle density, Curie-Weiss interaction, cell fluid model}
+\keywords{Cell fluid model, Curie-Weiss interaction, Pair distribution function, $n-$particle density}
 
 %%\pacs[JEL Classification]{D8, H51}
 
@@ -148,13 +148,15 @@
 
 	\section{Introduction}
 
+\pagebreak
 \input{./model}
 
+\pagebreak
 \input{./pair_distribution}
 
 %\input{./problem_statement}
 
-\section{Conclusion}
+\section{Conclusions}
 
 % \appendix
 
@@ -162,6 +164,41 @@
 
 \renewcommand{\theequation}{A.\arabic{equation}}
 \setcounter{equation}{0}
+
+\section{Auxiliary calculations}
+
+When ${\vb r}_1$ and ${\vb r}_2$ belong to the same cell, the two-particle density is expressed in terms of functions $K_j$ defined in~\eqref{def:Kj} as follows
+\begin{eqnarray*}
+	\rho^{(2)} & = & \frac{1}{v^2 K_0(T^*, \mu^*; \bar{y}_{\rm max})} \sum_{n=2}^{\infty} n(n-1) \frac{\left(v^* T^{*3/2}\right)^n}{n!} \exp\left[\left(\bar{y}_{\rm max} + \frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*} n^2\right]
+	\\
+	& = & \frac{1}{v^2 K_0(T^*, \mu^*; \bar{y}_{\rm max})} \sum_{n=0}^{\infty} (n^2 - n) \frac{\left(v^* T^{*3/2}\right)^n}{n!} \exp\left[\left(\bar{y}_{\rm max} + \frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*} n^2\right]
+	\\
+	& = & \frac{K_2(T^*, \mu^*; \bar{y}_{\rm max}) - K_1(T^*, \mu^*; \bar{y}_{\rm max})}{v^2 K_0(T^*, \mu^*; \bar{y}_{\rm max})}.
+\end{eqnarray*}
+Therefore, for $g^{(2)}$ one obtains
+\begin{eqnarray}
+	g^{(2)} & = & \frac{\left[K_2(T^*, \mu^*; \bar{y}_{\rm max}) - K_1(T^*, \mu^*; \bar{y}_{\rm max})\right] K_0(T^*, \mu^*; \bar{y}_{\rm max})}{K_1(T^*, \mu^*; \bar{y}_{\rm max})^2}
+\end{eqnarray}
+
+If we perform some transformations, we can express quantity $K_1$ via $K_0$
+\begin{eqnarray*}
+	\tilde{K}_0(T^*; \bar{z}_{\rm max}) \langle n \rangle_Q & = & 
+	v^{-1} \sum_{n=1}^{\infty} n \frac{\left(v^* T^{*3/2}\right)^n}{n!} \exp(\bar{z}_{\rm max}n - \frac{a}{2T^*}n^2)
+	\\
+	& = & \sum_{n=1}^{\infty} \frac{v^{n-1}}{(n-1)!} \exp(\bar{z}n - \frac{ap}{2}n^2)
+	\\
+	& = & \left| n=m+1; \quad \sum_{n=1}^{\infty} \rightarrow \sum_{m=0}^{\infty}; \quad n^2 = m^2 + 2m + 1 \right|
+	\\
+	& = & \exp(\bar{z} - \frac{ap}{2}) \sum_{n=0}^{\infty} \frac{v^n}{n!} \exp\left[(\bar{z} - ap)n - \frac{ap}{2}n^2 \right]
+	\\
+	& = & \exp(\bar{z} - \frac{ap}{2}) \langle \exp(-apn) \rangle_Q
+	\\
+	& = & \exp(\bar{z} - \frac{ap}{2}) K_0 (\bar{z} - ap, p),
+\end{eqnarray*}
+and thus
+\begin{equation*}
+	\langle n \rangle_Q = \frac{K_0(\bar{z} - ap, p)}{K_0(\bar{z}, p)} \exp(\bar{z} - \frac{ap}{2})
+\end{equation*}
 
 \input{./appendix-low-density-limit}
 
@@ -188,7 +225,7 @@
 %% file, and delete the associated \verb+\bibliography+ commands.                            %%
 %%===========================================================================================%%
 
-
+\pagebreak
 %\bibliographystyle{gost2008}
 \bibliography{articles,books}
 

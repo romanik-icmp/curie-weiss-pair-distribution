@@ -1,43 +1,46 @@
 \section{\label{sec:model} Model}
-The cell model introduced and described in~\cite{KKD18,KKD20} is considered. This model possesses an exact solution in the case of Curie-Weiss interaction. The exact asymptotic expressions for the grand partition function were obtained in~\cite{KKD20}. In this paper we will study structure properties of the model, in particular $1$-body and $2$-body densities, and the pair distribution function.
-
-Let us briefly introduce notation to be used in this paper, and then summarize the known results for the model.
-
-We work within the formalism of the grand canonical ensemble. We consider a system of point particles contained in volume $V$. The volume $V$ is divided into a number of $N_v$ congruent cubic cells $\Delta_l$ of volume $v=c^3$, such that the volume $V$ is the union of all $\Delta_l$
-\begin{equation*}
-	V = \bigcup_{l=1}^{N_v}\Delta_l,
-\end{equation*}
-and for each pair of $\Delta_l$ and $\Delta_m$
-\begin{equation*}
-	\Delta_l \cap \Delta_m = \emptyset, \text{ if } l \neq m.
-\end{equation*}
-
+An open system of point particles is considered in volume $V\subset\mathbb R^3$ in three space dimensions. The total volume $V$ is partitioned into $N_v$ non-overlapping congruent cubic cells $\Delta_l$, $l\in\{1,...,N_v\}$, each of volume $v$, such that $V$ is the union of all $\Delta_l$'s:
+\begin{eqnarray}\label{volume}
+	V = \bigcup_{l=1}^{N_v}\Delta_l,\qquad
+	\Delta_l \cap \Delta_{l'} = \emptyset, \text{ if } l \neq l',
+	\\ \qquad\mbox{and}\quad
+	V = v N_v.
+\end{eqnarray}
 The interaction energy between particles in configuration $\gamma_N = \{{\vb r}_1, ..., {\vb r}_N\}$, where ${\vb r}_i$ is the space coordinate of the $i$-th particle and $N$ is the number of particles in the configuration $\gamma_N$, is defined as follows
 \begin{equation*}
 	W_{N_v}(\gamma_N) = \frac{1}{2} \sum_{{\vb r}_i,{\vb r}_j \in \gamma} \Phi_{N_v} ({\vb r}_i, {\vb r}_j)
 \end{equation*}
 where $\Phi_{N_v}$ is given by the Curie-Weiss interaction
+% The two-particle interaction energy is defined as
 \begin{equation}
 	\label{def:curie-weiss-pot}
-	\Phi_{N_v}({\vb r}_i, {\vb r}_j) = -\frac{J_1}{N_v} + J_2\sum_{l=1}^{N_v} I_{\Delta_l}({\vb r}_i) I_{\Delta_l}({\vb r}_j),
+	\Phi_{N_v}(\vb{r}_i, \vb{r}_j) = -\frac{J_1}{N_v} + J_2\sum_{l=1}^{N_v} \mathbb{I}_{\Delta_l}(\vb{r}_i) \mathbb{I}_{\Delta_l}(\vb{r}_j).
 \end{equation}
-and $I_{\Delta_l}({\vb r})$ is the indicator function of $\Delta_l$
-\begin{equation*}
-	I_{\Delta_l} ({\vb r}) = \left\{
+The first term in $\Phi_{N_v}$ describes a global Curie-Weiss (mean-field-like) attraction for any pair of particles in the system.
+The strength of this attraction is controlled by an energy parameter $J_1 > 0$. The second term in $\Phi_{N_v}$ describes a local repulsion between two particles contained within the same cell $\Delta_l$ and is characterized by the parameter $J_2 > 0.$
+Here, $\mathbb{I}_{\Delta_l}(\vb{r})$ is the indicator function of a cell $\Delta_l$,
+\begin{equation}
+	\label{def:I}
+	\mathbb{I}_{\Delta_l} (\vb{r}) = \left\{
 	\begin{array}{ll}
-		1, \quad {\vb r} \in \Delta_l,
+		1, \quad \vb{r} \in \Delta_l,
 		\\
-		0, \quad {\vb r} \notin \Delta_l.
+		0, \quad \vb{r} \notin \Delta_l.
 	\end{array}
 	\right.
-\end{equation*}
-The first term in $\Phi_{N_v}$ describes the pairwise attraction between all particles and is characterized by $J_1 > 0$. The second term in $\Phi_{N_v}$ describes the repulsion between two particles contained within the same cell $\Delta_l$ and is characterized by $J_2 > 0.$ For stability of interaction the following condition must hold
-\begin{equation*}
-	J_2 > J_1.
-\end{equation*}
-Let us introduce notation
-$$a = J_2/J_1.$$
-In this work we fix $a=1.2$.
+\end{equation}
+We refer the reader to Refs.~\cite{KKD18,KKD20,RDKPS25arxiv} for a more rigorous definition of the model. The main features of the model are the following:
+\begin{itemize}
+	\item the model possesses an exact solution in the thermodynamic limit;
+	
+	\item for sufficiently low temperatures, the model exhibits an infinite sequence of first-order phase transitions between fluid phases of successively increasing density;
+	
+	\item the phase transition lines between each pair of neighboring phases terminate at respective critical points, and therefore an infinite number of critical points exist in the model.
+	
+\end{itemize}
+The phase diagrams in both the temperature-density and pressure-temperature planes are presented in~\cite{KD22}.
+
+Let us briefly introduce notation to be used in this paper, and then summarize the known results for the model.
 
 The grand partition function is expressed as follows
 \begin{equation*}
@@ -49,20 +52,14 @@ where $\zeta$ is the activity
 \end{equation*}
 $\beta = k_{\rm B} T$ the inverse temperature, $k_{\rm B}$ the Boltzmann constant, $T$ the temperature, $\mu$ the chemical potential, $\Lambda = (2\pi\beta\hbar^2/m)^{1/2}$ the de Broglie thermal wavelength, $\hbar$ the Planck constant, $m$ the mass of a particle. In the grand partition function the integration goes over all configurations with $N$ particles and then the summation goes over all positive integer values of $N$.
 
-Natural units for energy and length in our model are $J_1$ and $c$, respectively. It is standard practice to present thermodynamic results in terms of dimensionless quantities, normalized by the natural units. The usefulness of such quantities is that their numerical values are usually of the order of unity. Thus we introduce the following reduced quantities: 
+We use the following standard dimensionless variables: the reduced temperature $T^*=k_{\mathrm{B}}T/J_1$, the reduced pressure $P^* = P v/J_1$, the reduced chemical potential $\mu^* = \mu/J_1$, the reduced particle density $\rho^* = \frac{\langle N \rangle}{V} v = \frac{\langle N \rangle}{N_v}$, with $P$ being the pressure, and $\langle N \rangle$ the average number of particles in the system, where the brackets denote a grand-canonical ensemble average. The particle density $\rho = \frac{\langle N \rangle}{V}$ is also used throughout the paper.
 
-%the reduced temperature $T^* = k_{\rm B} T / J_1$, the reduced inverse temperature $p = \beta J_1$, reduced chemical potential $\mu^* = \mu / J_1$, and the reduced pressure $P^* = Pv/J_1$.
-\begin{eqnarray*}
-	T^* = \frac{k_{\rm B} T}{J_1} & \quad & \text{ -- the reduced temperature;} 
-	\\
-	\beta^* = \beta J_1 = \frac{1}{T^*} & \quad & \text{ -- the reduced inverse temperature;}
-	\\
-	\mu^* = \frac{\mu}{J_1} & \quad & \text{ -- the reduced chemical potential;}
-	\\ 
-	P^* = \frac{Pv}{J_1} & & \text{ -- the reduced pressure;}
-\end{eqnarray*}
+For stability of interaction the following condition must hold
+$J_2 > J_1.$
+For this reason we introduce notation
+$a = J_2/J_1.$ and set $a=1.2$ in the current work.
 
-In works~\cite{KKD18,KKD20} the following expression was obtained for the grand partition function
+The exact asymptotic expressions for the grand partition function were obtained in~\cite{KKD18,KKD20}. Here, we present the result in the form presented in~\cite{RDKPS25arxiv}:
 \begin{equation}
 	\Xi \simeq c_{N_v} \exp[N_v E(T^*, \mu^*; \bar{y}_{\rm max})]
 \end{equation}
@@ -71,9 +68,9 @@ which is asymptotically exact for the limit of $N_v \to \infty$. Here $\bar{y}_{
 	E(T^*, \mu^*; y) = -\frac{y^2}{2}T^* + \ln K_0(T^*,\mu^*; y),
 \end{equation*}
 where $K_0(T^*,\mu^*; y)$ is the $0$-th member of the following family of special functions
-\begin{eqnarray}\label{Kjd}
-	K_j(T^*,\mu^*;y) = \sum_{n=0}^{\infty} \frac{n^j (v^* T^{*3/2})^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2]
+\begin{eqnarray}\label{def:Kj}
+	K_j(T^*,\mu^*;y) = \sum_{n=0}^{\infty} \frac{n^j \left(v^* T^{*3/2} \right)^n}{n!} \exp[\left(y+\frac{\mu^*}{T^*}\right)n - \frac{a}{2T^*}n^2]
 \end{eqnarray}
-for $j=0,1,2,\ldots$ . Quantity $c_{N_v}$ does not play any role in the thermodynamic limit, therefore we do not provide its explicit expression here.
+for $j=0,1,2,\ldots$, where $v^* = v/\lambda^3$, $\lambda = (2\pi\hbar^2/mJ_1)^{1/2}$. Quantity $c_{N_v}$ does not play any role in the thermodynamic limit, therefore we do not provide its explicit expression here.
 
-For detailed investigation of the conditions necessary for the global maximum of $E$ and the derivation of relations for $\bar{y}$, we direct the interested readers to works~\cite{KKD18,KKD20,KD22,RDKPS25arxiv}. In this study we employ the methodology developed and the results derived in those works to investigate the pair distribution function. 
+For detailed investigation of the conditions necessary for the global maximum of $E$ and the derivation of relations for $\bar{y}_{\rm max}$, we direct the interested readers to works~\cite{KKD18,KKD20,KD22,RDKPS25arxiv}. In this paper, we employ the methodology developed and the results derived in those works to study structure properties of the model, in particular one- and two-particle densities, and the pair distribution function.
