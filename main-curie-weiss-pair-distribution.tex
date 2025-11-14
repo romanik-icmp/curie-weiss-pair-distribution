@@ -57,6 +57,7 @@
 \usepackage{listings}%
 
 \usepackage{physics}
+\usepackage{subcaption} % for \begin{subfigure}
 %%%%
 
 %%%%%=============================================================================%%%%
@@ -147,6 +148,7 @@
 \maketitle
 
 \section{Introduction}
+Different kinds of models of many-particle systems interacting via soft potentials have  been studied in literature. To mention a few, we mention penetrable spheres model~\cite{MW89,LWL98,Schmidt99,FLL00,Likos01}, Gaussian core model~\cite{Stillinger76,LLWL00,LBH00,LBHM00,BLHM01}, and the generalized exponential model of index 4 (GEM-4)~\cite{Prestipino14,PGT15}. When attempting to treat them within lattice gas models, one should consider lattice gases with multiple cell occupancies~\cite{FHL04,FL18}. In this paper, we consider a cell fluid model introduced in~\cite{KKD18,KKD20}, which is an example of a multiple-occupancy model, and derive exact expression for its pair distribution function in the case of Curie-Weiss interaction. In the course of calculation, we also obtain one- and two-particle densities. The results confirm that the cell fluid model with Curie-Weiss interaction is essentially a mean-field fluid.
 
 \section{\label{sec:model} Model}
 An open system of point particles is considered in volume $V\subset\mathbb R^3$ in three space dimensions. The total volume $V$ is partitioned into $N_v$ non-overlapping congruent cubic cells $\Delta_l$, $l\in\{1,...,N_v\}$, each of volume $v$, such that $V$ is the union of all $\Delta_l$'s:
@@ -179,22 +181,13 @@ Here, $\mathbb{I}_{\Delta_l}(\vb{r})$ is the indicator function of a cell $\Delt
 	\end{array}
 	\right.
 \end{equation}
-We refer the reader to Refs.~\cite{KKD18,KKD20,RDKPS25arxiv} for a more rigorous definition of the model. The main features of the model are the following:
-\begin{itemize}
-	\item the model possesses an exact solution in the thermodynamic limit;
-	
-	\item for sufficiently low temperatures, the model exhibits an infinite sequence of first-order phase transitions between fluid phases of successively increasing density;
-	
-	\item the phase transition lines between each pair of neighboring phases terminate at respective critical points, and therefore an infinite number of critical points exist in the model.
-	
-\end{itemize}
-The phase diagrams in both the temperature-density and pressure-temperature planes are presented in~\cite{KD22}.
+We refer the reader to Refs.~\cite{KKD18,KKD20,RDKPS25arxiv} for a more rigorous definition of the model. The phase diagrams in both the temperature-density and pressure-temperature planes are presented in~\cite{KD22}.
 
 Let us briefly introduce notation to be used in this paper, and then summarize the known results for the model.
 
 The grand partition function is expressed as follows
 \begin{equation*}
-	\Xi = \sum_{N=0}^{\infty}\frac{\zeta^N}{N!} \int_{V} \dotsc \int_{V} \exp(-\beta W_{N_v}(\gamma_N)) {\rm d} {\vb r}_1 \dotsc {\rm d} {\vb r}_N
+	\Xi = \sum_{N=0}^{\infty}\frac{\zeta^N}{N!} \int_{V} \dotsc \int_{V} \exp\left[-\beta W_{N_v}(\gamma_N)\right] {\rm d} {\vb r}_1 \dotsc {\rm d} {\vb r}_N
 \end{equation*}
 where $\zeta$ is the activity
 \begin{equation*}
@@ -235,7 +228,7 @@ The $n$-particle distribution function is defined via the $n$-particle densities
 where the $n$-particle density defined in the grand canonical ensemble is
 \begin{eqnarray*}
 	\label{def:rho_n}
-	\rho^{(n)}({\vb r}_1, \dotsc ,{\vb r}_n) = \frac{1}{\Xi}\sum_{N=n}^{\infty} \frac{\zeta^N}{(N-n)!} \int\exp(-\beta W_{N_v}(\gamma_N)) {\rm d} {\vb r}_{n+1} \dotsc {\rm d} {\vb r}_N.
+	\rho^{(n)}({\vb r}_1, \dotsc ,{\vb r}_n) = \frac{1}{\Xi}\sum_{N=n}^{\infty} \frac{\zeta^N}{(N-n)!} \int\exp\left[-\beta W_{N_v}(\gamma_N)\right] {\rm d} {\vb r}_{n+1} \dotsc {\rm d} {\vb r}_N.
 \end{eqnarray*}
 In this work, our goal is to calculate the pair distribution function $g^{(2)}({\vb r}_1, {\vb r}_2)$
 \begin{equation*}
@@ -248,7 +241,7 @@ Therefore, we first need to calculate the one- and two-particle densities.
 Let us first calculate $\rho^{(1)}$. By definition
 \begin{equation}
 	\label{def:rho1}
-	\rho^{(1)} ({\vb r}_1) = \Xi^{-1} \sum_{N=1}^{\infty} \frac{\zeta^N}{(N-1)!} \int \exp(-\beta W_{N_v}({\vb r}_1, \dotsc, {\vb r}_N)) {\rm d} {\vb r}_2 \dotsc {\rm d} {\vb r}_N.
+	\rho^{(1)} ({\vb r}_1) = \Xi^{-1} \sum_{N=1}^{\infty} \frac{\zeta^N}{(N-1)!} \int \exp\left[-\beta W_{N_v}({\vb r}_1, \dotsc, {\vb r}_N)\right] {\rm d} {\vb r}_2 \dotsc {\rm d} {\vb r}_N.
 \end{equation}
 Applying the method described in~\cite{KKD20}, we obtain the following result
 \begin{equation*}
@@ -283,7 +276,7 @@ Hence, we can write the following equalities:
 
 Let us now calculate the two-particle density, defined as
 \begin{equation*}
-	\rho^{(2)} ({\vb r}_1, {\vb r}_2) = \Xi^{-1} \sum_{N=2}^{\infty} \frac{\zeta^N}{(N-2)!} \int \exp(-\beta W_{N_v}({\vb r}_1, {\vb r}_2, \dotsc, {\vb r}_N)) {\rm d} {\vb r}_3 \dotsc {\rm d} {\vb r}_N.
+	\rho^{(2)} ({\vb r}_1, {\vb r}_2) = \Xi^{-1} \sum_{N=2}^{\infty} \frac{\zeta^N}{(N-2)!} \int \exp\left[-\beta W_{N_v}({\vb r}_1, {\vb r}_2, \dotsc, {\vb r}_N)\right] {\rm d} {\vb r}_3 \dotsc {\rm d} {\vb r}_N.
 \end{equation*}
 To deal with this expression, we again follow the methodology developed in~\cite{KKD20}. However, it is important to note that the result for $\rho^{(2)}({\vb r}_1, {\vb r}_2)$ varies depending on whether ${\vb r}_1$ and ${\vb r}_2$ belong to the same cell or to different cells.
 
@@ -360,7 +353,7 @@ Now, the two-particle density and the pair distribution function take on the fol
 \end{equation}
 \begin{equation}
 	\label{eq:g2_in_z}
-	g^{(2)} = \frac{\left[\tilde{K}_2(T^*; \bar{z}_{\rm max}) - \tilde{K}_1(T^*; \bar{z}_{\rm max})\right] K_0(T^*; \bar{z}_{\rm max})}{\tilde{K}_1(T^*; \bar{z}_{\rm max})^2}.
+	g^{(2)} = \frac{\left[\tilde{K}_2(T^*; \bar{z}_{\rm max}) - \tilde{K}_1(T^*; \bar{z}_{\rm max})\right] \tilde{K}_0(T^*; \bar{z}_{\rm max})}{\tilde{K}_1(T^*; \bar{z}_{\rm max})^2}.
 \end{equation}
 At any given temperature $T^*$, Eqs.~\eqref{eq:g2_in_z} and~\eqref{eq:mu_in_z} can be formally considered as a parametric equation for the pair distribution function $g^{(2)}$ as a function of $\mu^*$, with $\bar{z}_{\mathrm{max}}$ being the parameter.
 
@@ -372,56 +365,67 @@ Similarly, if Eq.~\eqref{eq:rho_in_y} is rewritten as
 then Eqs.~\eqref{eq:g2_in_z} and~\eqref{eq:rho_in_z} constitute a parametric equation for the pair distribution function $g^{(2)}$ as a function of $\rho^*$, at any given $T^*$ and with $\bar{z}_{\mathrm{max}}$ being the parameter.
 
 \begin{figure}[htbp]
-	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_z}
+	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_z_2}
 	\hfill
-	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_y}
+	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_y_2}
 	\\
-	\parbox{0.45\textwidth}{\caption{\label{fig:g2_z} Pair distribution function $g^{(2)}$ versus $\bar{z}$.}}
+	\parbox{0.45\textwidth}{\caption{\label{fig:g2_z} Pair distribution function $g^{(2)}$ versus $\bar{z}$ at two temperatures. Curve~1 (Black) - $T^* = 0.4$ - temperature is higher than $T^*_c$; Curve~2 (Blue) - $T^*=0.2$ - temperature is lower than $T^*_c$. The critical temperature $T^*_c \approx 0.25$. At Curve 2, the bold solid sections correspond to the stable phases, the dashed sections correspond to the metastable and unstable regions.}}
 	\hfill
-	\parbox{0.45\textwidth}{\caption{\label{fig:g2_y} Pair distribution function $g^{(2)}$ versus $\bar{y}$.}}
+	\parbox{0.45\textwidth}{\caption{\label{fig:g2_y} Pair distribution function $g^{(2)}$ versus $\bar{y}$ at two temperatures. Curve~1 (Black) - $T^* = 0.4$ - temperature is higher than $T^*_c$; Curve~2 (Blue) - $T^*=0.2$ - temperature is lower than $T^*_c$. The critical temperature $T^*_c \approx 0.25$. At Curve 2, the bold solid sections correspond to the stable phases, the dashed sections correspond to the metastable and unstable regions.}}
 	
 \end{figure}
 
 \begin{figure}[htbp]
-	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_rho_2}
-	\hfill
-	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_rho_low_temp_3}
-	\\
-	\parbox{0.45\textwidth}{\caption{\label{fig:g2_rho} Pair distribution function $g^{(2)}$ versus $\rho^*$.}}
-	\hfill
-	\parbox{0.45\textwidth}{\caption{\label{fig:g2_rho_low_temp} Pair distribution function $g^{(2)}$ versus $\rho^*$ at low temperature $T^*=0.1$.}}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\textwidth,angle=0]{g2_vs_rho_2}
+		\caption{}
+		\label{fig:g2_rho_a}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\textwidth,angle=0]{g2_vs_rho_low_temp_3}
+		\caption{}
+		\label{fig:g2_rho_low_temp_b}
+	\end{subfigure}
+	\caption{Pair distribution function $g^{(2)}$ versus $\rho^*$ at different temperatures.
+	(\textbf{a}) Curve~1 (Black): $T^* = 0.4$ - temperature is higher than $T^*_c$; Curve~2 (Blue): $T^*=0.2$ - temperature is lower than $T^*_c$.
+	(\textbf{b}) Blue curve: $T^*=0.1$ - temperature is much lower than $T^*_c$. The critical temperature $T^*_c \approx 0.25$. For undercritical temperatures, the bold solid sections correspond to the stable phases, the dashed sections correspond to the metastable and unstable regions. In Panel (b), the stable regions are too small to be noticeable in the plot.}
 \end{figure}
 
 At this point, we are in a position to illustrate the obtained results for the pair distribution function graphically. In Figure~\ref{fig:g2_z} the pair distribution function is shown as a function of $\bar{z}$ for two different values of temperature: $T^*=0.32$, which is above the range of critical temperatures, and $T^*=0.20$, which is below the range of critical temperatures. 
 
 In Figure~\ref{fig:g2_y} the pair distribution function is shown as a function of $\bar{y}$ for the same temperatures.
 
-In Figure~\ref{fig:g2_rho} the pair distribution function is shown as a function of density $\rho$ for the same temperatures.
+In Figure~\ref{fig:g2_rho_a} the pair distribution function is shown as a function of density $\rho$ for the same temperatures.
 
-Very interesting behavior of $g^{(2)}$ is observed in Figure~\ref{fig:g2_rho_low_temp}, where the dependency on density is presented in the low temperature limit, namely for $T^*=0.1$ 
+Very interesting behavior of $g^{(2)}$ is observed in Figure~\ref{fig:g2_rho_low_temp_b}, where the dependency on density is presented in the low temperature limit, namely for $T^*=0.1$ 
 
 The dependence of the pair distribution function on the chemical potential $\beta\mu$ is shown in Firugre~\ref{fig:g2_mu}.
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.7\textwidth,angle=0]{g2_vs_mu}
+	\includegraphics[width=0.6\textwidth,angle=0]{g2_vs_mu_2}
 	\caption{Pair distribution function $g^{(2)}$ versus $\mu^*$.}
 	\label{fig:g2_mu}
 \end{figure}
 
 \begin{figure}[htbp]
-	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_r}
-	\hfill
-	\includegraphics[width=0.5\textwidth,angle=0]{g2_vs_r_low_dens}
-	\\
-	\parbox{0.45\textwidth}{\caption{\label{fig:g2_r} Pair distribution function $g^{(2)}$ as a function of separation $r$. The quantity $r^*$ denotes distance from the point with coordinate ${\vb r}_1$ to the boundary of the cubic cell in the direction of ${\vb r}_2$. Phase I - $T = 0.925T_c,$ $\rho^*=0.1$; Phase II - $T = 0.8T_c,$ $\rho^* = 1.0$; Phase III - $T = 0.8T_c,$ $\rho^* = 2.0$; Supercritical - $T = 1.257T_c,$ $\rho^* = 0.5$.}}
-	\hfill
-	\parbox{0.45\textwidth}{\caption{\label{fig:g2_r_low_dens} Pair distribution function $g^{(2)}$ as a function of separation $r$. The quantity $r^*$ denotes distance from the point with coordinate ${\vb r}_1$ to the boundary of the cubic cell in the direction of ${\vb r}_2$. Phase I - $T = 0.925T_c,$ $\rho^*=0.1$; Low-density limit - $\exp(-pa)$ with $p=4.2464$ that corresponds to $T = 0.925T_c$.}}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\textwidth,angle=0]{g2_vs_r_2}
+		\caption{}
+		\label{fig:g2_r_a}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\includegraphics[width=\textwidth,angle=0]{g2_vs_r_low_dens_2}
+		\caption{}
+		\label{fig:g2_r_low_dens_b}
+	\end{subfigure}
+	\caption{Pair distribution function $g^{(2)}({\vb r}_1, {\vb r}_2)$ as a function of separation $r = \abs{{\vb r}_1 - {\vb r}_2}$. The quantity $r^*$ denotes distance from the point with coordinate ${\vb r}_1$ to the boundary of the cubic cell containing ${\vb r}_1$, in the direction of ${\vb r}_2$. ({\textbf{a}}) Phase I: $T^* = 0.2$, $\rho^*=0.1$; Phase II: $T^* = 0.2$, $\rho^* = 1.0$; Phase III: $T^*_c = 0.2$, $\rho^* = 2.0$; Supercritical: $T^* = 0.5$, $\rho^* = 0.5$. At $r > r^*$, $g^{(2)} = 1$. ({\textbf b}) Phase I: $T^* = 0.2$, $\rho^*=0.1$; Low-density limit: $g^{(2)} \approx \exp(-a/T^*)$, with $T^*=0.2$, $a=1.2$.}
 \end{figure}
 
 The spatial dependency of $g^{(2)}(x_1, x_2)$ for the cell model with Curie-Weiss interaction can be presented as a step function. While $x_1$ and $x_2$ are located within one cell, $g^{(2)}$ takes on a value that is dependent of the temperature and chemical potential (or of density). However as soon as the coordinates of two particles belong to different cells, $g^{(2)}$ becomes unity.
-In Figure~\ref{fig:g2_r} such step dependency is illustrated for different values of temperature and density. The temperature and density are selected to correspond to Phase I, Phase II, Phase III, and to a supercritical region over ``Phase I - Phase II'' the critical point. Since the value for Phase I is hardly visible in the scale of the graphic, Figure~\ref{fig:g2_r_low_dens} shows $g^{(2)}$ in Phase I in a better scale, along with the low-density limit~\eqref{eq:g2_low_limit}.
+In Figure~\ref{fig:g2_r_a} such step dependency is illustrated for different values of temperature and density. The temperature and density are selected to correspond to Phase I, Phase II, Phase III, and to a supercritical region over ``Phase I - Phase II'' the critical point. Since the value for Phase I is hardly visible in the scale of the graphic, Figure~\ref{fig:g2_r_low_dens_b} shows $g^{(2)}$ in Phase I in a better scale, along with the low-density limit~\eqref{eq:g2_low_limit}.
 
 \section{Conclusions}
+In this paper, we obtain exact expressions for the pair distribution function $g^{(2)}({\vb r}_1, {\vb r}_2)$ of the cell fluid model with Curie-Weiss interaction. Based on the obtained analytical result, dependences of $g^{(2)}$ on particle separation, density, and chemical potential are illustrated graphically. The obtained results confirm that the considered model is essentially a mean-field fluid.
 
 \begin{appendices}
 
